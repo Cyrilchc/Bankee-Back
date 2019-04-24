@@ -42,12 +42,12 @@ public abstract class Compte {
 
   public abstract boolean debiter(Montant montant);
 
-  public boolean crediter(Montant montant) throws MontantException {
-    if (montant == null) {
-      throw new MontantException(MONTANT_NULL);
-    }
-    solde += 
-    return true;
-  }
+//  public boolean crediter(Montant montant) throws MontantException {
+//    if (montant == null) {
+//      throw new MontantException(MONTANT_NULL);
+//    }
+//    solde += 
+//    return true;
+//  }
 
 }
