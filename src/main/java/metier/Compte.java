@@ -1,6 +1,9 @@
 package metier;
 
+import static metier.exception.utils.MontantExceptionUtils.MONTANT_NULL;
+
 import metier.curency.Montant;
+import metier.exception.MontantException;
 
 public abstract class Compte {
   private int id;
@@ -25,12 +28,6 @@ public abstract class Compte {
     this.numeroCompte = numeroCompte;
   }
 
-  public abstract boolean debiter(Montant montant);
-
-  public boolean crediter(Montant montant) {
-    return true;
-  }
-
   /**
    * le solde est en euro
    * @return le solde actuel du compte
@@ -42,4 +39,15 @@ public abstract class Compte {
   public String getNumeroCompte() {
     return numeroCompte;
   }
+
+  public abstract boolean debiter(Montant montant);
+
+  public boolean crediter(Montant montant) throws MontantException {
+    if (montant == null) {
+      throw new MontantException(MONTANT_NULL);
+    }
+    solde += 
+    return true;
+  }
+
 }
