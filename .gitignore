@@ -143,3 +143,5 @@ nbdist/
 
 /nbproject/
 /.idea/
+/BankeeBackServices/target/
+/BankeeBackMetier/target/
