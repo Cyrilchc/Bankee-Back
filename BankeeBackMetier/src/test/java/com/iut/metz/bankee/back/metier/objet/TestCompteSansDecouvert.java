@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
+import com.iut.metz.bankee.back.metier.objet.builder.CompteBuilder;
 import com.iut.metz.bankee.back.metier.objet.currency.Montant;
 import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
 import com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils;
@@ -15,7 +16,9 @@ public class TestCompteSansDecouvert {
 
   @Before
   public void init() {
-    compte = new CompteSansDecouvert(SOMME_DE_BASE, "test");
+    compte = new CompteBuilder()
+            .addNumeroCompte("test")
+            .addSolde(SOMME_DE_BASE).build();
   }
 
   @Test
@@ -59,7 +62,7 @@ public class TestCompteSansDecouvert {
       fail();
     } catch (Exception e) {
       //then
-      assertTrue(e instanceof  MontantException);
+      assertTrue(e instanceof MontantException);
       assertEquals(expected.getMessage(), e.getMessage());
     }
   }
@@ -74,7 +77,7 @@ public class TestCompteSansDecouvert {
       fail();
     } catch (Exception e) {
       //then
-      assertTrue(e instanceof  MontantException);
+      assertTrue(e instanceof MontantException);
       assertEquals(expected.getMessage(), e.getMessage());
     }
   }
@@ -84,7 +87,7 @@ public class TestCompteSansDecouvert {
     //give
     try {
       Montant montantADediter = new Montant(100, DOLLARD);
-      double expected = SOMME_DE_BASE - (montantADediter.getMontant()*DOLLARD.getValeurEnEuro());
+      double expected = SOMME_DE_BASE - (montantADediter.getMontant() * DOLLARD.getValeurEnEuro());
       //when
       compte.debiter(montantADediter);
       //then
@@ -99,7 +102,7 @@ public class TestCompteSansDecouvert {
     //give
     try {
       Montant montantADediter = new Montant(99.99, DOLLARD);
-      double expected = SOMME_DE_BASE - (montantADediter.getMontant()*DOLLARD.getValeurEnEuro());
+      double expected = SOMME_DE_BASE - (montantADediter.getMontant() * DOLLARD.getValeurEnEuro());
       //when
       compte.debiter(montantADediter);
       //then
@@ -114,13 +117,13 @@ public class TestCompteSansDecouvert {
     //give
     Exception expected = new MontantException(MontantExceptionUtils.SOLDE_NEGATIF);
     try {
-      Montant montantADediter = new Montant(SOMME_DE_BASE+1);
+      Montant montantADediter = new Montant(SOMME_DE_BASE + 1);
       //when
       compte.debiter(montantADediter);
       //then
       fail();
     } catch (Exception e) {
-      assertEquals(expected.getMessage() ,e.getMessage());
+      assertEquals(expected.getMessage(), e.getMessage());
     }
   }
 }

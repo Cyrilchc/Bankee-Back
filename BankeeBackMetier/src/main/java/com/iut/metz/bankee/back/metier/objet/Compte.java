@@ -1,12 +1,22 @@
 package com.iut.metz.bankee.back.metier.objet;
 
+import javax.persistence.*;
+
 import com.iut.metz.bankee.back.metier.objet.currency.Montant;
 import com.iut.metz.bankee.back.metier.objet.currency.process.MontantProcess;
 import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
 
+@MappedSuperclass
+@Table(name = "compte")
 public abstract class Compte {
+
+  @Id
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
+  @Column(name = "solde")
   private double solde;
+  @Column(name = "numero_compte")
   private String numeroCompte;
 
   public Compte(int id, double solde, String numeroCompte) {
@@ -16,16 +26,17 @@ public abstract class Compte {
   }
 
   public Compte(double solde, String numeroCompte) {
-    this.id=-1;
-    this.solde = solde;
-    this.numeroCompte = numeroCompte;
+    this(-1, solde, numeroCompte);
   }
 
-  public Compte(String numeroCompte) {
-    this.id=-1;
-    this.solde = 0;
-    this.numeroCompte = numeroCompte;
+  public int getId() {
+    return id;
   }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
 
   /**
    * le solde est en euro
@@ -41,6 +52,10 @@ public abstract class Compte {
 
   public String getNumeroCompte() {
     return numeroCompte;
+  }
+
+  public void setNumeroCompte(String numeroCompte) {
+    this.numeroCompte = numeroCompte;
   }
 
   public boolean debiter(Montant montant) throws MontantException {

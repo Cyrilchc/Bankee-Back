@@ -1,20 +1,15 @@
 package com.iut.metz.bankee.back.metier.objet;
 
+import javax.persistence.Entity;
+
 import com.iut.metz.bankee.back.metier.objet.currency.Montant;
 import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
 import com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils;
 
+@Entity
 public class CompteSansDecouvert extends Compte {
   public CompteSansDecouvert(int id, double solde, String numeroCompte) {
     super(id, solde, numeroCompte);
-  }
-
-  public CompteSansDecouvert(double solde, String numeroCompte) {
-    super(solde, numeroCompte);
-  }
-
-  public CompteSansDecouvert(String numeroCompte) {
-    super(numeroCompte);
   }
 
   @Override
@@ -27,7 +22,6 @@ public class CompteSansDecouvert extends Compte {
 
   @Override
   protected void doDebiter(Montant montant) throws MontantException {
-    double montantEnEuro = montant.getMontant()*montant.getMonaie().getValeurEnEuro();
-    setSolde(getSolde()- montantEnEuro);
+    setSolde(getSolde() - (montant.getMontant() * montant.getMonaie().getValeurEnEuro()));
   }
 }

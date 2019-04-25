@@ -10,18 +10,15 @@ public class Montant {
   private double montant;
   private Monnaie monaie;
 
-  public Montant(double montant, Monnaie monaie) throws MontantException {
+  public Montant(double montant, Monnaie monaie) {
     this(-1, montant, monaie);
   }
 
-  public Montant(double montant) throws MontantException {
+  public Montant(double montant) {
     this(montant, MONNAIE_PAR_DEFAUT);
   }
 
-  public Montant(int id, double montant, Monnaie monaie) throws MontantException {
-    if (montant <= 0) {
-      throw new MontantException(MONTANT_NEGATIF);
-    }
+  public Montant(int id, double montant, Monnaie monaie) {
     this.id = id;
     this.montant = montant;
     this.monaie = monaie;

@@ -11,5 +11,22 @@
     <groupId>com.iut.metz.bankee.back.metier</groupId>
     <artifactId>BankeeBackMetier</artifactId>
 
-
+    <dependencies>
+        <!-- framework BDD -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.2.6.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-java8</artifactId>
+            <version>5.0.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4.1212.jre7</version>
+        </dependency>
+    </dependencies>
 </project>

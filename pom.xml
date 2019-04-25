@@ -12,6 +12,7 @@
     <modules>
         <module>BankeeBackMetier</module>
         <module>BankeeBackServices</module>
+        <module>BankeeBackDataBase</module>
     </modules>
     <dependencies>
         <dependency>

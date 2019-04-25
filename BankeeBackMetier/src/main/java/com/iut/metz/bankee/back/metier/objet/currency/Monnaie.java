@@ -14,6 +14,7 @@ public class Monnaie {
   }
 
   public Monnaie(double valeurEnEuro, String nom, String symbole) {
+    id = -1;
     this.valeurEnEuro = valeurEnEuro;
     this.nom = nom;
     this.symbole = symbole;

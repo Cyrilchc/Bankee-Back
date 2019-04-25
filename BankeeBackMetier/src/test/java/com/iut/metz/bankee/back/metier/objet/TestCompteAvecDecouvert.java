@@ -5,17 +5,22 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
+import com.iut.metz.bankee.back.metier.objet.builder.CompteBuilder;
 import com.iut.metz.bankee.back.metier.objet.currency.Montant;
 import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
 import com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils;
 
 public class TestCompteAvecDecouvert {
-  private Compte compte;
+  private CompteAvecDecouvert compte;
   private static final double SOMME_DE_BASE = 200;
 
   @Before
   public void init() {
-    compte = new CompteAvecDecouvert(SOMME_DE_BASE, "test");
+    compte = (CompteAvecDecouvert)
+            new CompteBuilder()
+            .addNumeroCompte("test")
+            .addDecouvert(200)
+            .addSolde(SOMME_DE_BASE).build();
   }
 
   @Test
@@ -121,6 +126,21 @@ public class TestCompteAvecDecouvert {
       assertEquals(compte.getSolde(), expected, 0.1);
     } catch (Exception e) {
       fail();
+    }
+  }
+
+  @Test
+  public void testCompteDebiter_casMontantSuperieurDecouver() {
+    //give
+    Exception expected = new MontantException(MontantExceptionUtils.SOLDE_NEGATIF);
+    try {
+      Montant montantADediter = new Montant(SOMME_DE_BASE + compte.getDecouvertAutorise() + 1);
+      //when
+      compte.debiter(montantADediter);
+      //then
+      fail();
+    } catch (Exception e) {
+      assertEquals(expected.getMessage() ,e.getMessage());
     }
   }
 }
