@@ -1,8 +1,9 @@
 package com.iut.metz.bankee.back.metier.objet;
 
-import org.junit.*;
-
-import com.iut.metz.bankee.back.metier.objet.exception.ClientException;
+import metier.exception.ClientException;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  *
