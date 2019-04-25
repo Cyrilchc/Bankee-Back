@@ -1,4 +1,4 @@
-package metier.curency;
+package metier.currency;
 
 public class Monnaie {
   private int id;

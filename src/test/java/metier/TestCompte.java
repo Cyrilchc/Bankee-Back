@@ -1,22 +1,23 @@
 package metier;
 
+import static metier.currency.utils.CurrencyUtils.DOLLARD;
 import static metier.exception.utils.MontantExceptionUtils.*;
 import static org.junit.Assert.*;
 
 import org.junit.*;
 
-import metier.curency.Montant;
+import metier.currency.Montant;
 import metier.exception.MontantException;
 
 public class TestCompte {
   private Compte compte;
-  private final double sommeDeBase = 200;
+  private static final double SOMME_DE_BASE = 200;
 
   @Before
   public void init() {
-    compte = new Compte(sommeDeBase, "test") {
+    compte = new Compte(SOMME_DE_BASE, "test") {
       @Override
-      public boolean debiter(Montant montant) {
+      public boolean doDebiter(Montant montant) {
         return true;
       }
     };
@@ -25,23 +26,32 @@ public class TestCompte {
   @Test
   public void testCompteCrediter_casEntier() {
     //give
-    double expected = 300;
-    Montant montantACrediter = new Montant(100);
-    //when
-    compte.crediter(montantACrediter);
-    //then
-    assertEquals(expected, compte.getSolde(), 0.1);
+    try {
+      Montant montantACrediter = new Montant(100);
+      double expected = SOMME_DE_BASE + montantACrediter.getMontant();
+      //when
+      compte.crediter(montantACrediter);
+      //then
+      assertEquals(expected, compte.getSolde(), 0.1);
+    } catch (Exception ignore) {
+      fail();
+    }
   }
 
   @Test
   public void testCompteCrediter_casDouble() {
     //give
-    double expected = 299.99;
-    Montant montantACrediter = new Montant(99.99);
-    //when
-    compte.crediter(montantACrediter);
-    //then
-    assertEquals(expected, compte.getSolde(), 0.1);
+    try {
+      Montant montantACrediter = new Montant(99.99);
+      double expected = SOMME_DE_BASE + montantACrediter.getMontant();
+      //when
+      compte.crediter(montantACrediter);
+      //then
+      assertEquals(expected, compte.getSolde(), 0.1);
+    } catch (Exception ignore) {
+      fail();
+    }
+
   }
 
   @Test
@@ -54,7 +64,8 @@ public class TestCompte {
       fail();
     } catch (Exception e) {
       //then
-      assertEquals(expected, e);
+      assertTrue(e instanceof  MontantException);
+      assertEquals(expected.getMessage(), e.getMessage());
     }
   }
 
@@ -68,7 +79,39 @@ public class TestCompte {
       fail();
     } catch (Exception e) {
       //then
-      assertEquals(expected, e);
+      assertTrue(e instanceof  MontantException);
+      assertEquals(expected.getMessage(), e.getMessage());
     }
+  }
+
+  @Test
+  public void testCompteCrediter_casEntierEnDollard() {
+    //give
+    try {
+      Montant montantACrediter = new Montant(100, DOLLARD);
+      double expected = SOMME_DE_BASE + (montantACrediter.getMontant()*DOLLARD.getValeurEnEuro());
+      //when
+      compte.crediter(montantACrediter);
+      //then
+      assertEquals(expected, compte.getSolde(), 0.1);
+    } catch (Exception ignore) {
+      fail();
+    }
+  }
+
+  @Test
+  public void testCompteCrediter_casDoubleEnDollard() {
+    //give
+    try {
+      Montant montantACrediter = new Montant(99.99, DOLLARD);
+      double expected = SOMME_DE_BASE + (montantACrediter.getMontant()*DOLLARD.getValeurEnEuro());
+      //when
+      compte.crediter(montantACrediter);
+      //then
+      assertEquals(expected, compte.getSolde(), 0.1);
+    } catch (Exception ignore) {
+      fail();
+    }
+
   }
 }

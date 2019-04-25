@@ -1,8 +1,7 @@
 package metier;
 
-import static metier.exception.utils.MontantExceptionUtils.MONTANT_NULL;
-
-import metier.curency.Montant;
+import metier.currency.Montant;
+import metier.currency.process.MontantProcess;
 import metier.exception.MontantException;
 
 public abstract class Compte {
@@ -36,18 +35,27 @@ public abstract class Compte {
     return solde;
   }
 
+  public void setSolde(double solde) throws MontantException {
+    this.solde = solde;
+  }
+
   public String getNumeroCompte() {
     return numeroCompte;
   }
 
-  public abstract boolean debiter(Montant montant);
+  public boolean debiter(Montant montant) throws MontantException {
+    if (new MontantProcess().isValid(montant)) {
+      doDebiter(montant);
+    }
+    return true;
+  }
 
-//  public boolean crediter(Montant montant) throws MontantException {
-//    if (montant == null) {
-//      throw new MontantException(MONTANT_NULL);
-//    }
-//    solde += 
-//    return true;
-//  }
+  protected abstract void doDebiter(Montant montant) throws MontantException;
 
+  public boolean crediter(Montant montant) throws MontantException {
+    if (new MontantProcess().isValid(montant)) {
+      solde += (montant.getMontant() * montant.getMonaie().getValeurEnEuro());
+    }
+    return true;
+  }
 }
