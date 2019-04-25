@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="BankeeBackServices" />
         <module name="BankeeBackMetier" />
-        <module name="BankeeBack" />
       </profile>
     </annotationProcessing>
   </component>
