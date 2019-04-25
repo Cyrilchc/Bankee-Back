@@ -1,8 +1,9 @@
 package com.iut.metz.bankee.back.metier.objet.currency;
 
-import com.iut.metz.bankee.back.metier.objet.currency.utils.CurrencyUtils;
+import static com.iut.metz.bankee.back.metier.objet.currency.utils.CurrencyUtils.MONNAIE_PAR_DEFAUT;
+import static com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils.MONTANT_NEGATIF;
+
 import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
-import com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils;
 
 public class Montant {
   private int id;
@@ -14,12 +15,12 @@ public class Montant {
   }
 
   public Montant(double montant) throws MontantException {
-    this(montant, CurrencyUtils.MONNAIE_PAR_DEFAUT);
+    this(montant, MONNAIE_PAR_DEFAUT);
   }
 
   public Montant(int id, double montant, Monnaie monaie) throws MontantException {
     if (montant <= 0) {
-      throw new MontantException(MontantExceptionUtils.MONTANT_NEGATIF);
+      throw new MontantException(MONTANT_NEGATIF);
     }
     this.id = id;
     this.montant = montant;

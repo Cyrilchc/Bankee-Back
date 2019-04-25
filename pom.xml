@@ -8,11 +8,14 @@
     <artifactId>BankeeBack</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
+<<<<<<< HEAD
 
     <modules>
         <module>BankeeBackMetier</module>
         <module>BankeeBackServices</module>
     </modules>
+=======
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
     <dependencies>
         <dependency>
             <groupId>junit</groupId>

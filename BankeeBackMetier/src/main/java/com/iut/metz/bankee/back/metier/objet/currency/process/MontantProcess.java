@@ -1,8 +1,9 @@
 package com.iut.metz.bankee.back.metier.objet.currency.process;
 
+import static com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils.*;
+
 import com.iut.metz.bankee.back.metier.objet.currency.Montant;
 import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
-import com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils;
 
 public class MontantProcess {
 
@@ -28,14 +29,14 @@ public class MontantProcess {
 
   private MontantException isMontantNotNull(Montant montant) {
     if (montant == null) {
-      return new MontantException(MontantExceptionUtils.MONTANT_NULL);
+      return new MontantException(MONTANT_NULL);
     }
     return null;
   }
 
   private MontantException isMontantNegatif(Montant montant) {
     if (montant.getMontant() <= 0) {
-      return new MontantException(MontantExceptionUtils.MONTANT_NEGATIF);
+      return new MontantException(MONTANT_NEGATIF);
     }
     return null;
   }

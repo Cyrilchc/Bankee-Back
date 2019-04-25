@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bda20693-9969-4320-9732-44942b119075" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/../.idea/Test.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../.idea/codeStyles/Project.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../.idea/dbnavigator.xml" afterDir="false" />
@@ -14,12 +15,18 @@
       <change afterPath="$PROJECT_DIR$/BankeeBackMetier/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/BankeeBackMetier/src/main/java/com/iut/metz/bankee/back/metier/objet/Client.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/BankeeBackServices/pom.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/metier/currency/process/MontantProcess.java" afterDir="false" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
       <change afterPath="$PROJECT_DIR$/../TD_Exercice2/.idea/codeStyles/Project.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../TD_Exercice2/.idea/dbnavigator.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../TD_Exercice2/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../TD_Exercice2/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../TD_Exercice2/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../TD_Exercice2/TD_Exercice2.iml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
@@ -44,6 +51,20 @@
       <change beforePath="$PROJECT_DIR$/src/test/java/metier/TestCompteAvecDecouvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankeeBackMetier/src/test/java/com/iut/metz/bankee/back/metier/objet/TestCompteAvecDecouvert.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/metier/TestCompteSansDecouvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankeeBackMetier/src/test/java/com/iut/metz/bankee/back/metier/objet/TestCompteSansDecouvert.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/metier/banque/TestBanqueRetrait.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankeeBackMetier/src/test/java/com/iut/metz/bankee/back/metier/objet/banque/TestBanqueRetrait.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/metier/Compte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metier/Compte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/metier/CompteAvecDecouvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metier/CompteAvecDecouvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/metier/CompteSansDecouvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metier/CompteSansDecouvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/metier/curency/Monnaie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metier/currency/Monnaie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/metier/curency/Montant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metier/currency/Montant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/metier/curency/utils/CurrencyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metier/currency/utils/CurrencyUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/metier/exception/utils/MontantExceptionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/metier/exception/utils/MontantExceptionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/metier/TestCompte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/metier/TestCompte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/metier/TestCompteAvecDecouvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/metier/TestCompteAvecDecouvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/metier/TestCompteSansDecouvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/metier/TestCompteSansDecouvert.java" afterDir="false" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -63,10 +84,16 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/BankeeBackMetier/src/test/java/com/iut/metz/bankee/back/metier/objet/TestCompte.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
               <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/metier/Compte.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,6 +102,20 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/metier/currency/process/MontantProcess.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/BankeeBackMetier/src/main/resources/dummy.txt">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -87,6 +128,12 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+        <entry file="jar://D:/Programs/jdk/jdk1.8.0_112/src.zip!/java/util/function/Consumer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
             </state>
           </provider>
         </entry>
@@ -123,35 +170,111 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="170">
               <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+=======
+            <state relative-caret-position="392">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/BankeeBackMetier/src/main/java/com/iut/metz/bankee/back/metier/objet/Compte.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
               <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/metier/CompteAvecDecouvert.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="89" selection-start-line="20" selection-start-column="89" selection-end-line="20" selection-end-column="89" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#289#290#0" expanded="true" />
+                <element signature="e#329#330#0" expanded="true" />
+                <element signature="e#396#397#0" expanded="true" />
+                <element signature="e#432#433#0" expanded="true" />
+                <element signature="e#485#486#0" expanded="true" />
+                <element signature="e#514#515#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/metier/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/metier/Banque.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/metier/CompteSansDecouvert.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#143#144#0" expanded="true" />
+                <element signature="e#183#184#0" expanded="true" />
+                <element signature="e#254#255#0" expanded="true" />
+                <element signature="e#290#291#0" expanded="true" />
+                <element signature="e#347#348#0" expanded="true" />
+                <element signature="e#376#377#0" expanded="true" />
+              </folding>
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/BankeeBackMetier/src/main/java/com/iut/metz/bankee/back/metier/objet/Client.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="392">
               <caret line="101" column="46" selection-start-line="101" selection-start-column="46" selection-end-line="101" selection-end-column="46" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/test/java/metier/TestCompteAvecDecouvert.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1530">
+              <caret line="120" column="51" selection-start-line="120" selection-start-column="51" selection-end-line="120" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#414#415#0" expanded="true" />
+                <element signature="e#477#478#0" expanded="true" />
+              </folding>
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/BankeeBackMetier/src/test/java/com/iut/metz/bankee/back/metier/objet/TestCompteSansDecouvert.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/metier/currency/Montant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="23" column="5" selection-start-line="21" selection-start-column="4" selection-end-line="23" selection-end-column="5" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -199,6 +322,7 @@
         <option value="$PROJECT_DIR$/src/test/java/metier/TestCompteSansDecouvert.java" />
         <option value="$PROJECT_DIR$/src/test/java/metier/TestCompteAvecDecouvert.java" />
         <option value="$PROJECT_DIR$/src/main/java/metier/currency/process/MontantProcess.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/java/metier/CompteAvecDecouvert.java" />
         <option value="$PROJECT_DIR$/src/main/java/metier/CompteSansDecouvert.java" />
         <option value="$PROJECT_DIR$/src/main/java/metier/Compte.java" />
@@ -212,6 +336,12 @@
         <option value="$PROJECT_DIR$/BankeeBackMetier/src/test/java/com/iut/metz/bankee/back/metier/objet/TestClient.java" />
         <option value="$PROJECT_DIR$/BankeeBackServices/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
+=======
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/metier/Compte.java" />
+        <option value="$PROJECT_DIR$/src/main/java/metier/CompteAvecDecouvert.java" />
+        <option value="$PROJECT_DIR$/src/main/java/metier/CompteSansDecouvert.java" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
       </list>
     </option>
   </component>
@@ -257,6 +387,62 @@
               <item name="BankeeBackServices" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="metier" type="462c0819:PsiDirectoryNode" />
+              <item name="currency" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BankeeBack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BankeeBack" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="metier" type="462c0819:PsiDirectoryNode" />
+              <item name="currency" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BankeeBack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BankeeBack" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="metier" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BankeeBack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BankeeBack" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="metier" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BankeeBack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BankeeBack" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BankeeBack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BankeeBack" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BankeeBack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BankeeBack" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="metier" type="462c0819:PsiDirectoryNode" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
             </path>
           </expand>
           <select />
@@ -403,7 +589,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1556120926261</updated>
+<<<<<<< HEAD
       <workItem from="1556120933496" duration="11200000" />
+=======
+      <workItem from="1556120933496" duration="8893000" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
     </task>
     <servers />
   </component>
@@ -440,7 +630,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="11200000" />
+=======
+    <option name="totallyTimeSpent" value="8893000" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -464,7 +658,11 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
+=======
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -529,6 +727,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/metier/TestBanque.java">
       <provider selected="true" editor-type-id="text-editor" />
+<<<<<<< HEAD
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/iut/metz/bankee/back/metier/TestClient.java">
       <provider selected="true" editor-type-id="text-editor" />
@@ -568,6 +767,8 @@
           <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
         </state>
       </provider>
+=======
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iut/metz/bankee/back/metier/currency/utils/CurrencyUtils.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -576,6 +777,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/test/java/com/iut/metz/bankee/back/metier/TestCompte.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1139">
@@ -596,6 +798,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/iut/metz/bankee/back/metier/TestCompteSansDecouvert.java">
+=======
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="111" selection-start-line="111" selection-end-line="124" selection-end-column="3" />
@@ -607,6 +812,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/test/java/com/iut/metz/bankee/back/metier/TestCompteAvecDecouvert.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
@@ -620,6 +826,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iut/metz/bankee/back/metier/currency/Montant.java">
+=======
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/Assert.class">
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="23" column="5" selection-start-line="21" selection-start-column="4" selection-end-line="23" selection-end-column="5" />
@@ -629,6 +838,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iut/metz/bankee/back/metier/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -649,12 +859,48 @@
           <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/metier/exception/MontantException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding>
+            <element signature="e#119#120#0" expanded="true" />
+            <element signature="e#143#144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/metier/currency/Monnaie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/metier/currency/utils/CurrencyUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/metier/TestCompte.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1139">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#236#237#0" expanded="true" />
+            <element signature="e#266#267#0" expanded="true" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iut/metz/bankee/back/metier/currency/process/MontantProcess.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="40">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding>
@@ -675,10 +921,26 @@
             <element signature="e#432#433#0" expanded="true" />
             <element signature="e#485#486#0" expanded="true" />
             <element signature="e#514#515#0" expanded="true" />
+=======
+        <state relative-caret-position="85">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/metier/TestCompteSansDecouvert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="111" selection-start-line="111" selection-end-line="124" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#416#417#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iut/metz/bankee/back/metier/CompteSansDecouvert.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -691,12 +953,33 @@
             <element signature="e#290#291#0" expanded="true" />
             <element signature="e#347#348#0" expanded="true" />
             <element signature="e#376#377#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/test/java/metier/TestCompteAvecDecouvert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="120" column="51" selection-start-line="120" selection-start-column="51" selection-end-line="120" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#477#478#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/metier/currency/Montant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="23" column="5" selection-start-line="21" selection-start-column="4" selection-end-line="23" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iut/metz/bankee/back/metier/Banque.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="273">
           <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
           <folding>
@@ -762,18 +1045,91 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+=======
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Programs/jdk/jdk1.8.0_112/src.zip!/java/util/function/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/metier/Banque.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/metier/Compte.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/BankeeBackMetier/src/test/java/com/iut/metz/bankee/back/metier/objet/TestCompteAvecDecouvert.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/metier/currency/process/MontantProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/metier/CompteAvecDecouvert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="89" selection-start-line="20" selection-start-column="89" selection-end-line="20" selection-end-column="89" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#289#290#0" expanded="true" />
+            <element signature="e#329#330#0" expanded="true" />
+            <element signature="e#396#397#0" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/metier/CompteSansDecouvert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#143#144#0" expanded="true" />
+            <element signature="e#183#184#0" expanded="true" />
+            <element signature="e#254#255#0" expanded="true" />
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+>>>>>>> b383611a7a13ed20e37d73fe06a6152c1b2efa38
           </folding>
         </state>
       </provider>
