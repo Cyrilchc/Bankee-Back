@@ -4,7 +4,7 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <servlet>
-        <servlet-name>ServletAdaptor</servlet-name>
+        <servlet-name>bankee-back</servlet-name>
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
@@ -14,7 +14,7 @@
     </servlet>
     
     <servlet-mapping>
-        <servlet-name>ServletAdaptor</servlet-name>
+        <servlet-name>bankee-back</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
 </web-app>
