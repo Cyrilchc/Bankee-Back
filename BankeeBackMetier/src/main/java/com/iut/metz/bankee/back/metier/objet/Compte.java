@@ -3,8 +3,8 @@ package com.iut.metz.bankee.back.metier.objet;
 import javax.persistence.*;
 
 import com.iut.metz.bankee.back.metier.objet.currency.Montant;
-import com.iut.metz.bankee.back.metier.objet.currency.process.MontantProcess;
-import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
+import com.iut.metz.bankee.back.metier.objet.exception.*;
+import com.iut.metz.bankee.back.metier.process.MontantProcess;
 
 @MappedSuperclass
 @Table(name = "compte")
@@ -58,7 +58,7 @@ public abstract class Compte {
     this.numeroCompte = numeroCompte;
   }
 
-  public boolean debiter(Montant montant) throws MontantException {
+  public boolean debiter(Montant montant) throws MetierException {
     if (new MontantProcess().isValid(montant)) {
       doDebiter(montant);
     }
@@ -67,7 +67,7 @@ public abstract class Compte {
 
   protected abstract void doDebiter(Montant montant) throws MontantException;
 
-  public boolean crediter(Montant montant) throws MontantException {
+  public boolean crediter(Montant montant) throws MetierException{
     if (new MontantProcess().isValid(montant)) {
       solde += (montant.getMontant() * montant.getMonaie().getValeurEnEuro());
     }

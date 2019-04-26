@@ -1,6 +1,7 @@
 package com.iut.metz.bankee.back.metier.objet;
 
-import static com.iut.metz.bankee.back.metier.objet.currency.utils.CurrencyUtils.DOLLARD;
+import static com.iut.metz.bankee.back.metier.objet.exception.utils.ObjetExceptionUtils.OBJET_NULL;
+import static com.iut.metz.bankee.back.metier.utils.CurrencyUtils.DOLLARD;
 import static org.junit.Assert.*;
 
 import org.junit.*;
@@ -55,7 +56,7 @@ public class TestCompte {
   @Test
   public void testCompteCrediter_casMontantNull() {
     //give
-    Exception expected = new MontantException(MontantExceptionUtils.MONTANT_NULL);
+    Exception expected = new MontantException(OBJET_NULL);
     //when
     try {
       compte.crediter(null);

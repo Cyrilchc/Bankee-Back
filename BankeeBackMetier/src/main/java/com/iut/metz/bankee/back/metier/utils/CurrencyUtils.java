@@ -1,4 +1,4 @@
-package com.iut.metz.bankee.back.metier.objet.currency.utils;
+package com.iut.metz.bankee.back.metier.utils;
 
 import com.iut.metz.bankee.back.metier.objet.currency.Monnaie;
 

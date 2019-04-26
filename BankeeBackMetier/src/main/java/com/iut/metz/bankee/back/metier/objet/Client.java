@@ -77,15 +77,15 @@ public class Client {
    * @param nom
    * @param comptes
    */
-  public Client(int id, String numeroClient, String adresse, String nom, List<Compte> comptes) throws ClientException {
-    if (comptes == null) {
-      throw new ClientException(COMPTES_NULL);
-    }
+  public Client(int id, String numeroClient, String adresse, String nom, List<Compte> comptes) {
     this.id = id;
     this.numeroClient = numeroClient;
     this.adresse = adresse;
     this.nom = nom;
-    this.comptes = new ArrayList<Compte>();
+    this.comptes = comptes;
+    if (comptes == null) {
+      this.comptes = new ArrayList<>();
+    }
   }
 
   // M�thodes de la classe

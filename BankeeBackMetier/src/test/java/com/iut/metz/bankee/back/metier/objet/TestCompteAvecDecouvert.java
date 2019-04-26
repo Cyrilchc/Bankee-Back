@@ -1,13 +1,13 @@
 package com.iut.metz.bankee.back.metier.objet;
 
-import static com.iut.metz.bankee.back.metier.objet.currency.utils.CurrencyUtils.DOLLARD;
+import static com.iut.metz.bankee.back.metier.utils.CurrencyUtils.DOLLARD;
 import static org.junit.Assert.*;
 
 import org.junit.*;
 
 import com.iut.metz.bankee.back.metier.objet.builder.CompteBuilder;
 import com.iut.metz.bankee.back.metier.objet.currency.Montant;
-import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
+import com.iut.metz.bankee.back.metier.objet.exception.*;
 import com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils;
 
 public class TestCompteAvecDecouvert {
@@ -18,9 +18,9 @@ public class TestCompteAvecDecouvert {
   public void init() {
     compte = (CompteAvecDecouvert)
             new CompteBuilder()
-            .addNumeroCompte("test")
-            .addDecouvert(200)
-            .addSolde(SOMME_DE_BASE).build();
+                    .addNumeroCompte("test")
+                    .addDecouvert(200)
+                    .addSolde(SOMME_DE_BASE).build();
   }
 
   @Test
@@ -54,34 +54,14 @@ public class TestCompteAvecDecouvert {
 
   }
 
-  @Test
-  public void testCompteDebiter_casMontantNull() {
-    //give
-    Exception expected = new MontantException(MontantExceptionUtils.MONTANT_NULL);
-    //when
-    try {
-      compte.debiter(null);
-      fail();
-    } catch (Exception e) {
-      //then
-      assertTrue(e instanceof  MontantException);
-      assertEquals(expected.getMessage(), e.getMessage());
-    }
+  @Test(expected = MetierException.class)
+  public void testCompteDebiter_casMontantNull() throws MetierException {
+    compte.debiter(null);
   }
 
-  @Test
-  public void testCompteDebiter_casMontantNegatif() {
-    //give
-    Exception expected = new MontantException(MontantExceptionUtils.MONTANT_NEGATIF);
-    //when
-    try {
-      compte.debiter(new Montant(-1));
-      fail();
-    } catch (Exception e) {
-      //then
-      assertTrue(e instanceof  MontantException);
-      assertEquals(expected.getMessage(), e.getMessage());
-    }
+  @Test(expected = MontantException.class)
+  public void testCompteDebiter_casMontantNegatif() throws MetierException {
+    compte.debiter(new Montant(-1));
   }
 
   @Test
@@ -89,7 +69,7 @@ public class TestCompteAvecDecouvert {
     //give
     try {
       Montant montantADediter = new Montant(100, DOLLARD);
-      double expected = SOMME_DE_BASE - (montantADediter.getMontant()*DOLLARD.getValeurEnEuro());
+      double expected = SOMME_DE_BASE - (montantADediter.getMontant() * DOLLARD.getValeurEnEuro());
       //when
       compte.debiter(montantADediter);
       //then
@@ -104,7 +84,7 @@ public class TestCompteAvecDecouvert {
     //give
     try {
       Montant montantADediter = new Montant(99.99, DOLLARD);
-      double expected = SOMME_DE_BASE - (montantADediter.getMontant()*DOLLARD.getValeurEnEuro());
+      double expected = SOMME_DE_BASE - (montantADediter.getMontant() * DOLLARD.getValeurEnEuro());
       //when
       compte.debiter(montantADediter);
       //then
@@ -119,7 +99,7 @@ public class TestCompteAvecDecouvert {
     //give
     try {
       double expected = -1;
-      Montant montantADediter = new Montant(SOMME_DE_BASE+1);
+      Montant montantADediter = new Montant(SOMME_DE_BASE + 1);
       //when
       compte.debiter(montantADediter);
       //then
@@ -140,7 +120,7 @@ public class TestCompteAvecDecouvert {
       //then
       fail();
     } catch (Exception e) {
-      assertEquals(expected.getMessage() ,e.getMessage());
+      assertEquals(expected.getMessage(), e.getMessage());
     }
   }
 }

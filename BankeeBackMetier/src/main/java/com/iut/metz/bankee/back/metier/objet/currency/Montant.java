@@ -1,9 +1,6 @@
 package com.iut.metz.bankee.back.metier.objet.currency;
 
-import static com.iut.metz.bankee.back.metier.objet.currency.utils.CurrencyUtils.MONNAIE_PAR_DEFAUT;
-import static com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils.MONTANT_NEGATIF;
-
-import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
+import static com.iut.metz.bankee.back.metier.utils.CurrencyUtils.MONNAIE_PAR_DEFAUT;
 
 public class Montant {
   private int id;
