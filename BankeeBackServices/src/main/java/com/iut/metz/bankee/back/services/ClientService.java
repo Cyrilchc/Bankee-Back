@@ -1,5 +1,7 @@
 package com.iut.metz.bankee.back.services;
 
+import static com.iut.metz.bankee.back.services.util.ServiceUtils.*;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
@@ -12,10 +14,9 @@ public class ClientService {
   public Response getClient() {
     try {
       Client client = new Client("ddd", "2 rue", "Ligo");
-      return Response.ok(client).build();
+      return getResponse(client);
     } catch (Exception e) {
-      e.printStackTrace();
-      return Response.serverError().build();
+      return getError(e);
     }
   }
 }
