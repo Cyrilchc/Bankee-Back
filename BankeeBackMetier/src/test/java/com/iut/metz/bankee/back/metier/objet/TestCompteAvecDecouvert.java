@@ -8,7 +8,6 @@ import org.junit.*;
 import com.iut.metz.bankee.back.metier.objet.builder.CompteBuilder;
 import com.iut.metz.bankee.back.metier.objet.currency.Montant;
 import com.iut.metz.bankee.back.metier.objet.exception.*;
-import com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils;
 
 public class TestCompteAvecDecouvert {
   private CompteAvecDecouvert compte;
@@ -24,34 +23,25 @@ public class TestCompteAvecDecouvert {
   }
 
   @Test
-  public void testCompteDebiter_casEntier() {
+  public void testCompteDebiter_casEntier() throws MetierException {
     //give
-    try {
-      Montant montantADediter = new Montant(100);
-      double expected = SOMME_DE_BASE - montantADediter.getMontant();
-      //when
-      compte.debiter(montantADediter);
-      //then
-      assertEquals(expected, compte.getSolde(), 0.1);
-    } catch (Exception ignore) {
-      fail();
-    }
+    Montant montantADediter = new Montant(100);
+    double expected = SOMME_DE_BASE - montantADediter.getMontant();
+    //when
+    compte.debiter(montantADediter);
+    //then
+    assertEquals(expected, compte.getSolde(), 0.1);
   }
 
   @Test
-  public void testCompteDebiter_casDouble() {
+  public void testCompteDebiter_casDouble() throws MetierException {
     //give
-    try {
-      Montant montantADediter = new Montant(99.99);
-      double expected = SOMME_DE_BASE - montantADediter.getMontant();
-      //when
-      compte.debiter(montantADediter);
-      //then
-      assertEquals(expected, compte.getSolde(), 0.1);
-    } catch (Exception ignore) {
-      fail();
-    }
-
+    Montant montantADediter = new Montant(99.99);
+    double expected = SOMME_DE_BASE - montantADediter.getMontant();
+    //when
+    compte.debiter(montantADediter);
+    //then
+    assertEquals(expected, compte.getSolde(), 0.1);
   }
 
   @Test(expected = MetierException.class)
@@ -65,62 +55,45 @@ public class TestCompteAvecDecouvert {
   }
 
   @Test
-  public void testCompteDebiter_casEntierEnDollard() {
+  public void testCompteDebiter_casEntierEnDollard() throws MetierException {
     //give
-    try {
-      Montant montantADediter = new Montant(100, DOLLARD);
-      double expected = SOMME_DE_BASE - (montantADediter.getMontant() * DOLLARD.getValeurEnEuro());
-      //when
-      compte.debiter(montantADediter);
-      //then
-      assertEquals(expected, compte.getSolde(), 0.1);
-    } catch (Exception ignore) {
-      fail();
-    }
+    Montant montantADediter = new Montant(100, DOLLARD);
+    double expected = SOMME_DE_BASE - (montantADediter.getMontant() * DOLLARD.getValeurEnEuro());
+    //when
+    compte.debiter(montantADediter);
+    //then
+    assertEquals(expected, compte.getSolde(), 0.1);
   }
 
   @Test
-  public void testCompteDebiter_casDoubleEnDollard() {
+  public void testCompteDebiter_casDoubleEnDollard() throws MetierException {
     //give
-    try {
-      Montant montantADediter = new Montant(99.99, DOLLARD);
-      double expected = SOMME_DE_BASE - (montantADediter.getMontant() * DOLLARD.getValeurEnEuro());
-      //when
-      compte.debiter(montantADediter);
-      //then
-      assertEquals(expected, compte.getSolde(), 0.1);
-    } catch (Exception ignore) {
-      fail();
-    }
+    Montant montantADediter = new Montant(99.99, DOLLARD);
+    double expected = SOMME_DE_BASE - (montantADediter.getMontant() * DOLLARD.getValeurEnEuro());
+    //when
+    compte.debiter(montantADediter);
+    //then
+    assertEquals(expected, compte.getSolde(), 0.1);
   }
 
   @Test
-  public void testCompteDebiter_casMontantSuperieurSolde() {
+  public void testCompteDebiter_casMontantSuperieurSolde() throws MetierException {
     //give
-    try {
-      double expected = -1;
-      Montant montantADediter = new Montant(SOMME_DE_BASE + 1);
-      //when
-      compte.debiter(montantADediter);
-      //then
-      assertEquals(compte.getSolde(), expected, 0.1);
-    } catch (Exception e) {
-      fail();
-    }
+    double expected = -1;
+    Montant montantADediter = new Montant(SOMME_DE_BASE + 1);
+    //when
+    compte.debiter(montantADediter);
+    //then
+    assertEquals(compte.getSolde(), expected, 0.1);
   }
 
-  @Test
-  public void testCompteDebiter_casMontantSuperieurDecouver() {
+  @Test(expected = MontantException.class)
+  public void testCompteDebiter_casMontantSuperieurDecouver() throws MetierException {
     //give
-    Exception expected = new MontantException(MontantExceptionUtils.SOLDE_NEGATIF);
-    try {
-      Montant montantADediter = new Montant(SOMME_DE_BASE + compte.getDecouvertAutorise() + 1);
-      //when
-      compte.debiter(montantADediter);
-      //then
-      fail();
-    } catch (Exception e) {
-      assertEquals(expected.getMessage(), e.getMessage());
-    }
+    Montant montantADediter = new Montant(SOMME_DE_BASE + compte.getDecouvertAutorise() + 1);
+    //when
+    compte.debiter(montantADediter);
+    //then
+    fail();
   }
 }

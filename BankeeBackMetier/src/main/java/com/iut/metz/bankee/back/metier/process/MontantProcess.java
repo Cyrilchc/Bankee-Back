@@ -9,8 +9,19 @@ public class MontantProcess extends ObjectProcess<Montant> {
 
   public boolean isValid(Montant montant) throws MetierException {
     doValid(montant,
-            this::isMontantNegatif);
+            this::isMontantNegatif,
+            this::isMonnaieValid);
     return true;
+  }
+
+  private MetierException isMonnaieValid(Montant montant) {
+    try {
+      new MonnaieProcess().isValid(montant.getMonnaie());
+      return null;
+    } catch (MetierException e) {
+      log.warn(e.getMessage());
+      return e;
+    }
   }
 
   private MontantException isMontantNegatif(Montant montant) {

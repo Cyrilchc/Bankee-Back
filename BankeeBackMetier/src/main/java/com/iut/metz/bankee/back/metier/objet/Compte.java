@@ -1,5 +1,7 @@
 package com.iut.metz.bankee.back.metier.objet;
 
+import java.util.Objects;
+
 import javax.persistence.*;
 
 import com.iut.metz.bankee.back.metier.objet.currency.Montant;
@@ -69,8 +71,21 @@ public abstract class Compte {
 
   public boolean crediter(Montant montant) throws MetierException{
     if (new MontantProcess().isValid(montant)) {
-      solde += (montant.getMontant() * montant.getMonaie().getValeurEnEuro());
+      solde += (montant.getMontant() * montant.getMonnaie().getValeurEnEuro());
     }
     return true;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Compte compte = (Compte) o;
+    return id == compte.id;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, solde, numeroCompte);
   }
 }

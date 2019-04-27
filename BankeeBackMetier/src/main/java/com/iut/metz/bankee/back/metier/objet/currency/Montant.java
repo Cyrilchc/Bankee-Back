@@ -5,27 +5,35 @@ import static com.iut.metz.bankee.back.metier.utils.CurrencyUtils.MONNAIE_PAR_DE
 public class Montant {
   private int id;
   private double montant;
-  private Monnaie monaie;
+  private Monnaie monnaie;
 
-  public Montant(double montant, Monnaie monaie) {
-    this(-1, montant, monaie);
+  public Montant(double montant, Monnaie monnaie) {
+    this(-1, montant, monnaie);
   }
 
   public Montant(double montant) {
     this(montant, MONNAIE_PAR_DEFAUT);
   }
 
-  public Montant(int id, double montant, Monnaie monaie) {
+  public Montant(int id, double montant, Monnaie monnaie) {
     this.id = id;
     this.montant = montant;
-    this.monaie = monaie;
+    this.monnaie = monnaie;
   }
 
-  public Monnaie getMonaie() {
-    return monaie;
+  public Monnaie getMonnaie() {
+    return monnaie;
   }
 
   public double getMontant() {
     return montant;
+  }
+
+  public void setMontant(double montant) {
+    this.montant = montant;
+  }
+
+  public void setMonnaie(Monnaie monnaie) {
+    this.monnaie = monnaie;
   }
 }

@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 import com.iut.metz.bankee.back.metier.objet.exception.MetierException;
 
 public abstract class ObjectProcess<T> {
-  private Logger log = Logger.getLogger(ObjectProcess.class);
+  protected Logger log = Logger.getLogger(ObjectProcess.class);
 
   public abstract boolean isValid(T t) throws MetierException;
 

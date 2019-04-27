@@ -1,9 +1,10 @@
 package com.iut.metz.bankee.back.metier.process;
 
+import static com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils.MONTANT_NEGATIF;
 import static  com.iut.metz.bankee.back.metier.utils.CurrencyUtils.MONNAIE_PAR_DEFAUT;
 
 import com.iut.metz.bankee.back.metier.objet.currency.*;
-import com.iut.metz.bankee.back.metier.objet.exception.MetierException;
+import com.iut.metz.bankee.back.metier.objet.exception.*;
 
 /**
  * Ce process premet de faire de la conversion d'argent d'une monnaie vers de l'euro
@@ -21,6 +22,9 @@ public class ConversionProcess {
    */
   public Montant fromEuro(double somme, Monnaie monnaie) throws MetierException {
     Montant montant = null;
+    if (somme <= 0) {
+      throw new MontantException(MONTANT_NEGATIF);
+    }
     if (new MonnaieProcess().isValid(monnaie)){
       double res = somme / monnaie.getValeurEnEuro();
       montant = new Montant(res, monnaie);
@@ -36,8 +40,8 @@ public class ConversionProcess {
    */
   public Montant toEuro(Montant montant) throws MetierException {
     Montant montantRes = null;
-    if (new MonnaieProcess().isValid(montant.getMonaie())) {
-      double somme = montant.getMontant() * montant.getMonaie().getValeurEnEuro();
+    if (new MontantProcess().isValid(montant)) {
+      double somme = montant.getMontant() * montant.getMonnaie().getValeurEnEuro();
       montantRes = new Montant(somme, MONNAIE_PAR_DEFAUT);
     }
     return montantRes;

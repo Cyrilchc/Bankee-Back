@@ -1,13 +1,15 @@
 package com.iut.metz.bankee.back.metier.objet;
 
-import static com.iut.metz.bankee.back.metier.objet.exception.utils.ObjetExceptionUtils.OBJET_NULL;
 import static com.iut.metz.bankee.back.metier.utils.CurrencyUtils.DOLLARD;
 import static org.junit.Assert.*;
 
+import java.util.Objects;
+
 import org.junit.*;
 
+import com.iut.metz.bankee.back.metier.objet.builder.CompteBuilder;
 import com.iut.metz.bankee.back.metier.objet.currency.Montant;
-import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
+import com.iut.metz.bankee.back.metier.objet.exception.*;
 import com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils;
 
 public class TestCompte {
@@ -53,19 +55,9 @@ public class TestCompte {
 
   }
 
-  @Test
-  public void testCompteCrediter_casMontantNull() {
-    //give
-    Exception expected = new MontantException(OBJET_NULL);
-    //when
-    try {
-      compte.crediter(null);
-      fail();
-    } catch (Exception e) {
-      //then
-      assertTrue(e instanceof  MontantException);
-      assertEquals(expected.getMessage(), e.getMessage());
-    }
+  @Test(expected = MetierException.class)
+  public void testCompteCrediter_casMontantNull() throws MetierException {
+    compte.crediter(null);
   }
 
   @Test
@@ -78,7 +70,7 @@ public class TestCompte {
       fail();
     } catch (Exception e) {
       //then
-      assertTrue(e instanceof  MontantException);
+      assertTrue(e instanceof MontantException);
       assertEquals(expected.getMessage(), e.getMessage());
     }
   }
@@ -88,7 +80,7 @@ public class TestCompte {
     //give
     try {
       Montant montantACrediter = new Montant(100, DOLLARD);
-      double expected = SOMME_DE_BASE + (montantACrediter.getMontant()*DOLLARD.getValeurEnEuro());
+      double expected = SOMME_DE_BASE + (montantACrediter.getMontant() * DOLLARD.getValeurEnEuro());
       //when
       compte.crediter(montantACrediter);
       //then
@@ -103,7 +95,7 @@ public class TestCompte {
     //give
     try {
       Montant montantACrediter = new Montant(99.99, DOLLARD);
-      double expected = SOMME_DE_BASE + (montantACrediter.getMontant()*DOLLARD.getValeurEnEuro());
+      double expected = SOMME_DE_BASE + (montantACrediter.getMontant() * DOLLARD.getValeurEnEuro());
       //when
       compte.crediter(montantACrediter);
       //then
@@ -111,6 +103,85 @@ public class TestCompte {
     } catch (Exception ignore) {
       fail();
     }
+  }
 
+
+  //equals
+  @Test
+  public void testEquals_deuxCompteSansDecouvert() {
+    Compte compte1 = new CompteBuilder().addId(1).build();
+    Compte compte2 = new CompteBuilder().addId(1).build();
+    assertTrue(compte1.equals(compte2));
+  }
+
+  @Test
+  public void testEquals_deuxCompteSansDecouvertPasLeMemeSoldeMaisMemeId() {
+    Compte compte1 = new CompteBuilder().addId(1).addSolde(1).build();
+    Compte compte2 = new CompteBuilder().addId(1).addSolde(2).build();
+    assertTrue(compte1.equals(compte2));
+  }
+
+  @Test
+  public void testEquals_deuxCompteSansDecouvertPasLeMemeId() {
+    Compte compte1 = new CompteBuilder().addId(1).addSolde(1).build();
+    Compte compte2 = new CompteBuilder().addId(2).build();
+    assertFalse(compte1.equals(compte2));
+  }
+
+  @Test
+  public void testEquals_deuxCompteAvecDecouvert() {
+    Compte compte1 = new CompteBuilder().addId(1).addDecouvert(1).build();
+    Compte compte2 = new CompteBuilder().addId(1).addDecouvert(1).build();
+    assertTrue(compte1.equals(compte2));
+  }
+
+  @Test
+  public void testEquals_deuxCompteAvecDecouvertPasLeMemeSoldeMaisMemeId() {
+    Compte compte1 = new CompteBuilder().addId(1).addDecouvert(1).addSolde(1).build();
+    Compte compte2 = new CompteBuilder().addId(1).addDecouvert(1).addSolde(2).build();
+    assertTrue(compte1.equals(compte2));
+  }
+
+  @Test
+  public void testEquals_deuxCompteAvecDecouvertPasLeMemeId() {
+    Compte compte1 = new CompteBuilder().addId(1).addDecouvert(1).build();
+    Compte compte2 = new CompteBuilder().addId(2).addDecouvert(1).build();
+    assertFalse(compte1.equals(compte2));
+  }
+
+  @Test
+  public void testEquals_CompteAvecDecouvertEtCompteSansDecouvertMemeId() {
+    Compte compte1 = new CompteBuilder().addId(1).addDecouvert(1).build();
+    Compte compte2 = new CompteBuilder().addId(1).build();
+    assertFalse(compte1.equals(compte2));
+  }
+
+  //hash
+  @Test
+  public void testHash_CompteAvecDecouvert() {
+    int id = 1;
+    int decouvert = 1;
+    int solde = 0;
+    String num = "azerty";
+
+    Compte compte = new CompteBuilder().addId(id)
+            .addSolde(solde)
+            .addNumeroCompte(num)
+            .addDecouvert(decouvert).build();
+    int hash = compte.hashCode();
+    assertEquals(compte.hashCode(), hash);
+  }
+
+  @Test
+  public void testHash_CompteSansDecouvert() {
+    int id = 1;
+    int solde = 0;
+    String num = "azerty";
+
+    Compte compte = new CompteBuilder().addId(id)
+            .addSolde(solde)
+            .addNumeroCompte(num).build();
+    int hash = Objects.hash(id, solde, num);
+    assertEquals(compte.hashCode(), hash);
   }
 }

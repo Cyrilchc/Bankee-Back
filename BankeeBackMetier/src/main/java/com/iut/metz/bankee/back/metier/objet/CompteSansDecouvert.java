@@ -22,6 +22,6 @@ public class CompteSansDecouvert extends Compte {
 
   @Override
   protected void doDebiter(Montant montant) throws MontantException {
-    setSolde(getSolde() - (montant.getMontant() * montant.getMonaie().getValeurEnEuro()));
+    setSolde(getSolde() - (montant.getMontant() * montant.getMonnaie().getValeurEnEuro()));
   }
 }

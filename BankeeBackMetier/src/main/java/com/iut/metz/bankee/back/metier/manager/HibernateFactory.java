@@ -14,7 +14,7 @@ public abstract class HibernateFactory<T> {
 
     private static SessionFactory sessionFactory;
 
-    static {
+    public static Session getSession() {
         try {
             Configuration cfg = new Configuration();
             sessionFactory = cfg.configure("hibernate.cfg.xml").buildSessionFactory();
@@ -22,9 +22,6 @@ public abstract class HibernateFactory<T> {
             Logger.getLogger(HibernateFactory.class.getName()).log(Level.SEVERE, null, ex);
             throw new ExceptionInInitializerError(ex);
         }
-    }
-
-    public static Session getSession() {
         return sessionFactory.openSession();
     }
 

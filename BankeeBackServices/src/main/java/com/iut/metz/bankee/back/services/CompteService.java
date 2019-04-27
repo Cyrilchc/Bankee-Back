@@ -1,34 +1,26 @@
 package com.iut.metz.bankee.back.services;
 
-import static com.iut.metz.bankee.back.services.util.ServiceUtils.*;
+import static com.iut.metz.bankee.back.services.util.CustomHeader.NUMERO_COMPTE;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
-import org.apache.log4j.Logger;
+import com.iut.metz.bankee.back.metier.manager.CompteManager;
 
-import com.iut.metz.bankee.back.metier.objet.*;
-import com.iut.metz.bankee.back.metier.process.ObjectProcess;
-
+/**
+ * service ne s'occupant que d'un compte
+ */
 @Path("compte")
 public class CompteService {
-  private Logger log = Logger.getLogger(CompteService.class);
 
+  /**
+   * retourne le compte demandé en fonction de son numéro de compte
+   */
   @GET
   @Produces({ MediaType.APPLICATION_JSON })
-  public Response getCompte(@Context HttpHeaders headers) {
-    if (isAllows(headers)) {
-      try {
-        Compte compte = new CompteSansDecouvert(-1, 200, "test");
-        return getResponse(compte);
-      } catch (Exception e) {
-        return getError(e);
-      }
-    } else {
-      return getNotAuthorized();
-    }
+  public Response getClient(@Context HttpHeaders headers) {
+    return new getDataService().getData(headers,
+            NUMERO_COMPTE,
+            num -> CompteManager.getInstance().getCompteByNumCompte(num));
   }
 }

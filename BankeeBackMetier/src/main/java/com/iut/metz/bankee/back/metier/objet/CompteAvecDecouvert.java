@@ -1,5 +1,7 @@
 package com.iut.metz.bankee.back.metier.objet;
 
+import java.util.Objects;
+
 import javax.persistence.*;
 
 import com.iut.metz.bankee.back.metier.objet.currency.Montant;
@@ -36,7 +38,17 @@ public class CompteAvecDecouvert extends Compte {
 
   @Override
   protected void doDebiter(Montant montant) throws MontantException {
-    double montantEnEuro = montant.getMontant()*montant.getMonaie().getValeurEnEuro();
+    double montantEnEuro = montant.getMontant()*montant.getMonnaie().getValeurEnEuro();
     setSolde(getSolde()- montantEnEuro);
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    return super.equals(o);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(super.hashCode(), decouvertAutorise);
   }
 }

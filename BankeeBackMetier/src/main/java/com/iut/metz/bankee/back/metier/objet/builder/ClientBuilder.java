@@ -3,6 +3,7 @@ package com.iut.metz.bankee.back.metier.objet.builder;
 import java.util.*;
 
 import com.iut.metz.bankee.back.metier.objet.*;
+import com.iut.metz.bankee.back.metier.process.ListComptesProcess;
 
 public class ClientBuilder {
   private int id;
@@ -39,13 +40,13 @@ public class ClientBuilder {
     return this;
   }
 
-  public ClientBuilder addCompte(List<Compte> comptes) {
-    this.comptes = comptes;
+  public ClientBuilder addCompte(Compte... comptes) {
+    this.comptes = new ListComptesProcess().addCompte(this.comptes, comptes);
     return this;
   }
 
-  public ClientBuilder addCompte(Compte... comptes) {
-    this.comptes = Arrays.asList(comptes);
+  public ClientBuilder addComptes(List<Compte> comptes) {
+    this.comptes = new ListComptesProcess().addCompte(this.comptes, comptes);
     return this;
   }
 
