@@ -22,5 +22,5 @@ CREATE TABLE appartient
     id_compte INTEGER NOT NULL,
     id_client INTEGER NOT NULL
 );
--- les deux clé sont primaire car un compte peut appartenir à plusieur personne (ex. compte pour un colocation)
+-- les deux clé sont primaire car un compte peut appartenir à plusieur personne (ex. compte de concubinage/compte de colocation)
 ALTER TABLE appartient ADD CONSTRAINT appartient_pkey PRIMARY KEY (id_compte,id_client);

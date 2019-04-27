@@ -21,5 +21,5 @@ public class OuvertureService {
   public Response ouvrirComptre(@Context HttpHeaders headers, final Personne personne) {
     return Response.ok().build();
   }
-  
+
 }

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.*;
 
-import com.iut.metz.bankee.back.metier.objet.currency.Montant;
+import com.iut.metz.bankee.back.metier.objet.currency.*;
 import com.iut.metz.bankee.back.metier.objet.exception.*;
 
 public class TestConversionProcess_ToEuro {
@@ -59,14 +59,14 @@ public class TestConversionProcess_ToEuro {
   @Test(expected = MonnaieException.class)
   public void testToEuro_casEuroVersMonaieTauxNegatif() throws MetierException {
     //give
-    montant.getMonnaie().setValeurEnEuro(-1);
+    montant.setMonnaie(new Monnaie(-1, "d", "d"));
     new ConversionProcess().toEuro(montant).getMontant();
   }
 
   @Test(expected = MonnaieException.class)
   public void testToEuro_casEuroVersMonaieTaux0() throws MetierException {
     //give
-    montant.getMonnaie().setValeurEnEuro(0);
+    montant.setMonnaie(new Monnaie(-1, "d", "d"));
     new ConversionProcess().toEuro(montant).getMontant();
   }
 }

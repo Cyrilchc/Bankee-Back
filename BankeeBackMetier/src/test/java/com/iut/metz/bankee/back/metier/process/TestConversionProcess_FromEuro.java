@@ -76,14 +76,14 @@ public class TestConversionProcess_FromEuro {
   @Test(expected = MonnaieException.class)
   public void testFromEuro_casEuroVersMonaieTauxNegatif() throws MetierException {
     //give
-    monnaie.setValeurEnEuro(-1);
+    monnaie = new Monnaie(-1, "d", "d");
     new ConversionProcess().fromEuro(1, monnaie);
   }
 
   @Test(expected = MonnaieException.class)
   public void testFromEuro_casEuroVersMonaieTaux0() throws MetierException {
     //give
-    monnaie.setValeurEnEuro(0);
+    monnaie = new Monnaie(-1, "d", "d");
     new ConversionProcess().fromEuro(1, monnaie);
   }
 }
