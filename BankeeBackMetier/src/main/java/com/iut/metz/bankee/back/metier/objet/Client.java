@@ -3,15 +3,16 @@ package com.iut.metz.bankee.back.metier.objet;
 import java.util.*;
 
 import com.iut.metz.bankee.back.metier.process.ListComptesProcess;
-import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * Classe m�tier Client 
- * Repr�sente un client de la banque
+ * Classe m�tier Client Repr�sente un client de la banque
+ *
+ * @author Lo�c NOEL
  */
-@Entity(name = "client")
-public class Client implements Serializable {
+@Entity
+@Table(name = "client")
+public class Client {
 
     // Attributs de la classe
     @Id
@@ -20,11 +21,9 @@ public class Client implements Serializable {
     private int id;
     @Column(name = "numero_client")
     private String numeroClient;
-    @Column(name = "adresse")
     private String adresse;
-    @Column(name = "nom")
     private String nom;
-    @OneToMany(mappedBy = "client")
+    @Transient
     private List<Compte> comptes;
 
     // Accesseurs de la classe
@@ -63,9 +62,6 @@ public class Client implements Serializable {
         return comptes;
     }
 
-    public Client() {
-    }
-    
     /**
      * Constructeur de la classe Client par d�faut
      *
@@ -77,7 +73,10 @@ public class Client implements Serializable {
         this.numeroClient = numeroClient;
         this.adresse = adresse;
         this.nom = nom;
-        this.comptes = new ArrayList<>();
+        this.comptes = new ArrayList<Compte>();
+    }
+
+    public Client() {
     }
 
     /**

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="0" name="com.iut.metz.bankee.back.metier.objet.TestCompte" time="0.081" errors="0" skipped="0">
+<testsuite tests="15" failures="0" name="com.iut.metz.bankee.back.metier.objet.TestCompte" time="0.089" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\bin"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\TS1SIO2016LoicNOeL\Desktop\Bankee-Back\BankeeBackMetier"/>
+    <property name="user.dir" value="C:\Users\TS1SIO2016LoicNOeL\Desktop\Bankee-Back"/>
     <property name="java.runtime.version" value="1.8.0_202-b08"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_202\jre\lib\endorsed"/>
@@ -63,7 +63,7 @@
   </properties>
   <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testEquals_deuxCompteSansDecouvertPasLeMemeId" time="0"/>
   <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testEquals_deuxCompteAvecDecouvertPasLeMemeSoldeMaisMemeId" time="0"/>
-  <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testCompteCrediter_casDouble" time="0.075"/>
+  <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testCompteCrediter_casDouble" time="0.084"/>
   <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testCompteCrediter_casEntier" time="0"/>
   <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testEquals_deuxCompteSansDecouvert" time="0"/>
   <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testHash_CompteAvecDecouvert" time="0"/>
@@ -72,7 +72,7 @@
   <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testCompteCrediter_casDoubleEnDollard" time="0"/>
   <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testEquals_CompteAvecDecouvertEtCompteSansDecouvertMemeId" time="0"/>
   <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testCompteCrediter_casEntierEnDollard" time="0"/>
-  <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testEquals_deuxCompteAvecDecouvertPasLeMemeId" time="0.001"/>
+  <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testEquals_deuxCompteAvecDecouvertPasLeMemeId" time="0"/>
   <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testCompteCrediter_casMontantNegatif" time="0.002"/>
   <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testHash_CompteSansDecouvert" time="0"/>
   <testcase classname="com.iut.metz.bankee.back.metier.objet.TestCompte" name="testCompteCrediter_casMontantNull" time="0"/>
