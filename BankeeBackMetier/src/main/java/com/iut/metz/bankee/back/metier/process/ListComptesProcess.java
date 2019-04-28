@@ -16,11 +16,15 @@ public class ListComptesProcess {
   public List<Compte> addCompte(List<Compte> listAEnrichire, List<Compte> comptes) {
     if (comptes != null) {
       comptes.forEach( compte -> {
-        if (compte != null && !listAEnrichire.contains(compte)) {
+        if (compte != null && !contains(listAEnrichire,compte)) {
           listAEnrichire.add(compte);
         }
       });
     }
     return listAEnrichire;
   }
+  
+  public boolean contains(List<Compte> comptes, Compte compte) {
+      return comptes.stream().anyMatch((c) -> (c.getId()==compte.getId()));
+  } 
 }
