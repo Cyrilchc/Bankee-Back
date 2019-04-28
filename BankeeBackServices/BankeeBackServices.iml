@@ -27,6 +27,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.tomcat:catalina:6.0.26" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.tomcat:servlet-api:6.0.26" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.tomcat:juli:6.0.26" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.tomcat:annotations-api:6.0.26" level="project" />
     <orderEntry type="module" module-name="BankeeBackMetier" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.2.6.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.0.Final" level="project" />
@@ -97,5 +101,17 @@
     <orderEntry type="library" name="Maven: org.powermock:powermock-module-junit4-common:2.0.2" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: net.sf.jopt-simple:jopt-simple:4.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-catalina:9.0.14" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-servlet-api:9.0.14" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-jsp-api:9.0.14" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-el-api:9.0.14" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-juli:9.0.14" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-annotations-api:9.0.14" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-api:9.0.14" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-jni:9.0.14" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-coyote:9.0.14" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-util:9.0.14" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-util-scan:9.0.14" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-jaspic-api:9.0.14" level="project" />
   </component>
 </module>
