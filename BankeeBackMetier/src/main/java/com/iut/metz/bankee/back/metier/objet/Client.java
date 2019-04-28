@@ -108,7 +108,7 @@ public class Client implements Serializable {
     /**
      * Ajoute un compte au client de la banque
      *
-     * @param compte
+     * @param comptes
      * @return true si le compte a �t� ajout�
      */
     public boolean ajouterCompte(Compte... comptes) {
