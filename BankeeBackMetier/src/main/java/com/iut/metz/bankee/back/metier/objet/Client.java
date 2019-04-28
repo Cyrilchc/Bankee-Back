@@ -6,17 +6,26 @@ import java.util.*;
 
 import com.iut.metz.bankee.back.metier.objet.exception.ClientException;
 
+import javax.persistence.*;
+
 /**
  * Classe m�tier Client Repr�sente un client de la banque
  * @author Lo�c NOEL
  */
+@Entity
+@Table(name = "client")
 public class Client {
 
   // Attributs de la classe
+  @Id
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
+  @Column(name = "numero_client")
   private String numeroClient;
   private String adresse;
   private String nom;
+  @Transient
   private List<Compte> comptes;
 
   // Accesseurs de la classe
@@ -67,6 +76,9 @@ public class Client {
     this.adresse = adresse;
     this.nom = nom;
     this.comptes = new ArrayList<Compte>();
+  }
+
+  public Client() {
   }
 
   /**
