@@ -23,13 +23,10 @@ public class CompteManager extends HibernateFactory<Compte> {
   }
 
   public Compte getCompteByNumCompte(String numCompte) {
-    AtomicReference<Compte> res = new AtomicReference<>(null);
     Session session = getSession();
-    Query query = session.createQuery("from Compte as compte where compte.numeroCompte = :numCompte");
+    Query query = session.createQuery("select compte from Compte as compte where compte.numeroCompte = :numCompte");
     query.setParameter("numCompte", numCompte);
-    List<Compte> list = query.list();
-    list.forEach(res::set);
-    return res.get();
+    return (Compte) query.getSingleResult();
   }
 
   public List<Compte> getComptesByNumClient(String numClient) {

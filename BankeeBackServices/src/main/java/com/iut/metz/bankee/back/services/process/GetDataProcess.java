@@ -29,6 +29,7 @@ public class GetDataProcess {
           log.info("mauvais numéro de compte");
           return NUMERO_NON_VALIDE;
         }
+        log.debug(object.getClass());
         return object;
       } catch (Exception e) {
         log.info(e);

@@ -9,6 +9,8 @@ import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
 import com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils;
 
 @Entity
+@Table(name = "compte")
+@DiscriminatorValue("not null")
 public class CompteAvecDecouvert extends Compte {
 
   @Column(name = "decouvert_autorise")
@@ -50,5 +52,12 @@ public class CompteAvecDecouvert extends Compte {
   @Override
   public int hashCode() {
     return Objects.hash(super.hashCode(), decouvertAutorise);
+  }
+
+  @Override
+  public String toString() {
+    return "CompteAvecDecouvert{" +
+            "decouvertAutorise=" + decouvertAutorise +
+            "} " + super.toString();
   }
 }

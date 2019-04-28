@@ -7,10 +7,12 @@ import javax.persistence.*;
 import com.iut.metz.bankee.back.metier.objet.currency.Montant;
 import com.iut.metz.bankee.back.metier.objet.exception.*;
 import com.iut.metz.bankee.back.metier.process.MontantProcess;
-
-@MappedSuperclass
-@Table(name = "compte")
-public abstract class Compte {
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "decouvert_autorise")
+public class Compte {
+  public Compte() {
+  }
 
   @Id
   @Column(name = "id")
@@ -67,7 +69,9 @@ public abstract class Compte {
     return true;
   }
 
-  protected abstract void doDebiter(Montant montant) throws MontantException;
+  protected void doDebiter(Montant montant) throws MontantException {
+    return;
+  }
 
   public boolean crediter(Montant montant) throws MetierException{
     if (new MontantProcess().isValid(montant)) {
@@ -87,5 +91,14 @@ public abstract class Compte {
   @Override
   public int hashCode() {
     return Objects.hash(id, solde, numeroCompte);
+  }
+
+  @Override
+  public String toString() {
+    return "Compte{" +
+            "id=" + id +
+            ", solde=" + solde +
+            ", numeroCompte='" + numeroCompte + '\'' +
+            '}';
   }
 }

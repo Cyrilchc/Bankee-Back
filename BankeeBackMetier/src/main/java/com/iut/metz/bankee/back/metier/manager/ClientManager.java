@@ -22,6 +22,6 @@ public class ClientManager extends HibernateFactory<Client> {
     Session session = getSession();
     Query query = session.createQuery("select client from Client as client where client.numeroClient = :numClient");
     query.setParameter("numClient", numClient);
-    return (Client)query.getSingleResult();
+    return (Client) query.getSingleResult();
   }
 }
