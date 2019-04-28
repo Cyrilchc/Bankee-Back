@@ -81,6 +81,11 @@
             <artifactId>activation</artifactId>
             <version>1.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.allenru</groupId>
+            <artifactId>cross-origin</artifactId>
+            <version>1.0.1</version>
+        </dependency>
 
     </dependencies>
 
