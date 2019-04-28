@@ -81,7 +81,7 @@ public abstract class Compte {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Compte compte = (Compte) o;
-    return id == compte.id;
+    return this.id == compte.id;
   }
 
   @Override

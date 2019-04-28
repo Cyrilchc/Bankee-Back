@@ -1,5 +1,6 @@
 package com.iut.metz.bankee.back.metier.objet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +20,15 @@ public class Banque {
         return comptes;
     }
     
+    /**
+     * Constructeur de la classe Banque
+     * @param comptes 
+     */
     public Banque(List<Compte> comptes) {
-        
+        if(comptes == null) {
+            this.comptes = new ArrayList<>();
+        } else {
+            this.comptes = comptes;
+        }
     }
 }
