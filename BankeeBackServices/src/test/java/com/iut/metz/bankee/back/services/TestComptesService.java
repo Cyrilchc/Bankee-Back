@@ -26,8 +26,6 @@ import static org.mockito.Mockito.when;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(CompteManager.class)
 public class TestComptesService extends JerseyTest {
-  private String userCredentials = "admin:admin";
-  private String basicAuth = "Basic " + new String(Base64.getEncoder().encode(userCredentials.getBytes()));
 
   @Override
   protected Application configure() {
