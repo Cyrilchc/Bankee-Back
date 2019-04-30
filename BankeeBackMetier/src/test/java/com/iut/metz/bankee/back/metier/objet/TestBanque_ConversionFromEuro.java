@@ -1,0 +1,90 @@
+package com.iut.metz.bankee.back.metier.objet;
+
+import static com.iut.metz.bankee.back.metier.utils.CurrencyUtils.*;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.*;
+
+import com.iut.metz.bankee.back.metier.objet.currency.Monnaie;
+import com.iut.metz.bankee.back.metier.objet.exception.*;
+import com.iut.metz.bankee.back.metier.process.ConversionProcess;
+
+public class TestBanque_ConversionFromEuro {
+  private static final double MONTANT_DE_BASE = 20;
+  private Monnaie monnaie;
+
+  @Before
+  public void init() {
+    monnaie = new Monnaie(1,"z", "z");
+  }
+
+  @Test(expected = MetierException.class)
+  public void testFromEuro_casMonnaieNull() throws MetierException {
+    new Banque().conversionFromEuro(1, null);
+  }
+
+  @Test(expected = MetierException.class)
+  public void testFromEuro_casMonnaieNomVide() throws MetierException {
+    monnaie = new Monnaie(1, "", "e");
+    new Banque().conversionFromEuro(1, monnaie);
+  }
+
+  @Test(expected = MetierException.class)
+  public void testFromEuro_casMonnaieNomNull() throws MetierException {
+    monnaie = new Monnaie(1, null, "e");
+    new Banque().conversionFromEuro(1, monnaie);
+  }
+
+  @Test(expected = MetierException.class)
+  public void testFromEuro_casMonnaieSymboleVide() throws MetierException {
+    monnaie = new Monnaie(1, "e", "");
+    new Banque().conversionFromEuro(1, monnaie);
+  }
+
+  @Test(expected = MetierException.class)
+  public void testFromEuro_casMonnaieSymboleNull() throws MetierException {
+    monnaie = new Monnaie(1, "e", null);
+    new Banque().conversionFromEuro(1, monnaie);
+  }
+
+  @Test(expected = MontantException.class)
+  public void testFromEuro_casSommeNegatif() throws MetierException {
+    new Banque().conversionFromEuro(-1, monnaie);
+  }
+
+  @Test(expected = MontantException.class)
+  public void testFromEuro_casMontant0() throws MetierException {
+    new Banque().conversionFromEuro(0, monnaie);
+  }
+
+  @Test
+  public void testFromEuro_casEuroVersEuro() throws MetierException {
+    //then
+    assertEquals(new Banque().conversionFromEuro(MONTANT_DE_BASE, MONNAIE_PAR_DEFAUT).getMontant()
+            , MONTANT_DE_BASE, 0);
+  }
+
+  @Test
+  public void testFromEuro_casEuroVersDollard() throws MetierException {
+    //give
+    double expected = MONTANT_DE_BASE / DOLLARD.getValeurEnEuro();
+    //when
+    double res = new Banque().conversionFromEuro(MONTANT_DE_BASE, DOLLARD).getMontant();
+    //then
+    assertEquals(expected, res, 0);
+  }
+
+  @Test(expected = MonnaieException.class)
+  public void testFromEuro_casEuroVersMonaieTauxNegatif() throws MetierException {
+    //give
+    monnaie = new Monnaie(-1, "d", "d");
+    new Banque().conversionFromEuro(1, monnaie);
+  }
+
+  @Test(expected = MonnaieException.class)
+  public void testFromEuro_casEuroVersMonaieTaux0() throws MetierException {
+    //give
+    monnaie = new Monnaie(-1, "d", "d");
+    new Banque().conversionFromEuro(1, monnaie);
+  }
+}

@@ -7,8 +7,6 @@ import javax.persistence.*;
 
 /**
  * Classe m�tier Client Repr�sente un client de la banque
- *
- * @author Lo�c NOEL
  */
 @Entity
 @Table(name = "client")
@@ -64,10 +62,6 @@ public class Client {
 
     /**
      * Constructeur de la classe Client par d�faut
-     *
-     * @param numeroClient
-     * @param adresse
-     * @param nom
      */
     public Client(String numeroClient, String adresse, String nom) {
         this.numeroClient = numeroClient;
@@ -81,12 +75,6 @@ public class Client {
 
     /**
      * Constructeur de la classe Client avec id technique et liste de comptes
-     *
-     * @param id
-     * @param numeroClient
-     * @param adresse
-     * @param nom
-     * @param comptes
      */
     public Client(int id, String numeroClient, String adresse, String nom, List<Compte> comptes) {
         this.id = id;
@@ -106,13 +94,10 @@ public class Client {
 
     /**
      * Ajoute un compte au client de la banque
-     *
-     * @param comptes
-     * @return true si le compte a �t� ajout�
+     * @return true si le compte a été ajouté
      */
     public boolean ajouterCompte(Compte... comptes) {
         new ListComptesProcess().addCompte(this.comptes, comptes);
         return true;
     }
-
 }
