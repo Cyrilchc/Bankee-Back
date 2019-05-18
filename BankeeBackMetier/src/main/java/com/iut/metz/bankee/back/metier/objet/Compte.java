@@ -1,16 +1,19 @@
 package com.iut.metz.bankee.back.metier.objet;
 
-import java.util.Objects;
+import com.iut.metz.bankee.back.metier.objet.currency.Montant;
+import com.iut.metz.bankee.back.metier.objet.exception.MetierException;
+import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
+import com.iut.metz.bankee.back.metier.process.MontantProcess;
+import org.hibernate.annotations.DiscriminatorFormula;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Objects;
 
-import com.iut.metz.bankee.back.metier.objet.currency.Montant;
-import com.iut.metz.bankee.back.metier.objet.exception.*;
-import com.iut.metz.bankee.back.metier.process.MontantProcess;
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "decouvert_autorise")
-public class Compte {
+@Table(name="compte")
+@DiscriminatorFormula("case when decouvert_autorise is null then 0 else 1")
+public class Compte implements Serializable {
   public Compte() {
   }
 

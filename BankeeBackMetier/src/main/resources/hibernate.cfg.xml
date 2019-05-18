@@ -7,11 +7,15 @@
         <!-- Database connection settings -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+        <!--<property name="connection.url">jdbc:postgresql://postgres:5432/postgres</property>-->
         <property name="connection.username">postgres</property>
         <property name="connection.password"/>
         <property name="show_sql">true</property>
 
         <mapping class="com.iut.metz.bankee.back.metier.objet.Compte"/>
+        <!--<mapping class="com.iut.metz.bankee.back.metier.objet.CompteAvecDecouvert"/>
+        <mapping class="com.iut.metz.bankee.back.metier.objet.CompteSansDecouvert"/>-->
         <mapping class="com.iut.metz.bankee.back.metier.objet.Client"/>
+
     </session-factory>
 </hibernate-configuration>

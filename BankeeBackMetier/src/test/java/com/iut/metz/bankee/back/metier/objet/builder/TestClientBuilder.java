@@ -80,7 +80,7 @@ public class TestClientBuilder {
   @Test
   public void testClientBuilder_addUnComptes() {
     Compte compte = new CompteBuilder().addId(1).build();
-    comptes = Arrays.asList(compte);
+    comptes = Collections.singletonList(compte);
     client = builder.addCompte(compte).build();
     testAllCase();
   }
@@ -114,7 +114,7 @@ public class TestClientBuilder {
     client = builder
             .addCompte(compte1)
             .addCompte(compte2)
-            .addCompte(null)
+            .addCompte((Compte) null)
             .build();
     testAllCase();
   }
@@ -172,7 +172,7 @@ public class TestClientBuilder {
     testAllCase();
   }
 
-  public void testAllCase() {
+  private void testAllCase() {
     assertEquals(client.getId(), id);
     assertEquals(client.getNom(), nom);
     assertEquals(client.getAdresse(), adresse);

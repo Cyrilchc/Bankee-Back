@@ -1,12 +1,11 @@
 package com.iut.metz.bankee.back.metier.manager;
 
-import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
-
+import com.iut.metz.bankee.back.metier.objet.Compte;
+import com.iut.metz.bankee.back.metier.objet.CompteAvecDecouvert;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import com.iut.metz.bankee.back.metier.objet.Compte;
+import java.util.List;
 
 public class CompteManager extends HibernateFactory<Compte> {
     private static CompteManager instance;
@@ -24,14 +23,15 @@ public class CompteManager extends HibernateFactory<Compte> {
 
     public Compte getCompteByNumCompte(String numCompte) {
         Session session = getSession();
-        Query query = session.createQuery("select compte from Compte as compte where compte.numeroCompte = :numCompte");
+        Query query = session.createQuery("select compte from Compte compte where compte.numeroCompte = :numCompte");
         query.setParameter("numCompte", numCompte);
-        return (Compte) query.getSingleResult();
+        Object res = query.getSingleResult();
+        return (Compte)res;
     }
 
     public List<Compte> getComptesByNumClient(String numClient) {
         Session session = getSession();
-        Query query = session.createQuery("SELECT client.comptes from Client as client where client.numeroClient = :numClient");
+        Query query = session.createQuery("SELECT client.comptes from Client client where client.numeroClient = :numClient");
         query.setParameter("numClient", numClient);
         return query.list();
     }

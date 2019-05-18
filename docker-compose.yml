@@ -1,14 +1,16 @@
 version: '3'
 services:
     webapp:
-        image: tomcat
+        image: tomcat:9.0.19-jre8
         ports:
             - "8080:8080"
         links:
-          - postgres
+          - "postgres:postgres"
         volumes:
-            - ./BankeeBackServices/target/BankeeBack.war:/usr/local/tomcat/webapps/ROOT.war
-            - ./BankeeBackServices/target/BankeeBack:/usr/local/tomcat/webapps/ROOT
+            - ./BankeeBackDataBase/src/main/resources/web.xml:/usr/local/tomcat/conf/web.xml
+            - ./BankeeBackDataBase/src/main/resources/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+            - ./BankeeBackServices/target/BankeeBack.war:/usr/local/tomcat/webapps/bankee-back.war
+            - ./BankeeBackServices/target/BankeeBack:/usr/local/tomcat/webapps/bankee-back
     postgres:
         image: postgres:9.4
         ports:

@@ -22,52 +22,37 @@ public class Client {
     private String adresse;
     private String nom;
     @Transient
+    @ManyToMany
+    @JoinTable(name = "appartient",
+            joinColumns = @JoinColumn(name = "id_client"),
+            inverseJoinColumns = @JoinColumn(name = "id_compte"))
     private List<Compte> comptes;
 
-    // Accesseurs de la classe
-    /**
-     * @return the id
-     */
     public int getId() {
         return id;
     }
 
-    /**
-     * @return the numeroClient
-     */
     public String getNumeroClient() {
         return numeroClient;
     }
 
-    /**
-     * @return the adresse
-     */
     public String getAdresse() {
         return adresse;
     }
 
-    /**
-     * @return the nom
-     */
     public String getNom() {
         return nom;
     }
 
-    /**
-     * @return the comptes
-     */
     public List<Compte> getComptes() {
         return comptes;
     }
 
-    /**
-     * Constructeur de la classe Client par d�faut
-     */
     public Client(String numeroClient, String adresse, String nom) {
         this.numeroClient = numeroClient;
         this.adresse = adresse;
         this.nom = nom;
-        this.comptes = new ArrayList<Compte>();
+        this.comptes = new ArrayList<>();
     }
 
     public Client() {

@@ -1,5 +1,6 @@
 package com.iut.metz.bankee.back.metier.objet;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.*;
@@ -9,9 +10,8 @@ import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
 import com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils;
 
 @Entity
-@Table(name = "compte")
-@DiscriminatorValue("not null")
-public class CompteAvecDecouvert extends Compte {
+@DiscriminatorValue("1")
+public class CompteAvecDecouvert extends Compte implements Serializable {
 
   @Column(name = "decouvert_autorise")
   private double decouvertAutorise;
@@ -21,8 +21,10 @@ public class CompteAvecDecouvert extends Compte {
     this.decouvertAutorise = decouvertAutorise;
   }
 
+    public CompteAvecDecouvert() {}
 
-  @Override
+
+    @Override
   public void setSolde(double solde) throws MontantException {
     if (solde < -decouvertAutorise) {
       throw new MontantException(MontantExceptionUtils.SOLDE_NEGATIF);
