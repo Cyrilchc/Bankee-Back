@@ -4,7 +4,8 @@ CREATE TABLE client
     id            SERIAL PRIMARY KEY,
     numero_client VARCHAR(255) NOT NULL,
     adresse       VARCHAR(255) NOT NULL,
-    nom           VARCHAR(255) NOT NULL
+    nom           VARCHAR(255) NOT NULL,
+    password      VARCHAR(255) NOT NULL
 );
 
 -- table compte
@@ -20,7 +21,36 @@ CREATE TABLE compte
 CREATE TABLE appartient
 (
     id_compte INTEGER NOT NULL,
-    id_client INTEGER NOT NULL
+    id_client INTEGER NOT NULL,
+    PRIMARY KEY (id_compte, id_client),
+    FOREIGN KEY (id_compte) REFERENCES compte (id),
+    FOREIGN KEY (id_client) REFERENCES client (id)
 );
--- les deux clé sont primaire car un compte peut appartenir à plusieur personne (ex. compte de concubinage/compte de colocation)
-ALTER TABLE appartient ADD CONSTRAINT appartient_pkey PRIMARY KEY (id_compte,id_client);
+
+INSERT INTO compte(numero_compte, solde, decouvert_autorise)
+values ('1234', 100, 100),
+       ('1235', -50, 100),
+       ('1236', 40, 100),
+       ('1237', 200, 100);
+
+INSERT INTO compte(numero_compte, solde)
+values ('1238', 100),
+       ('1239', 50),
+       ('1240', 40),
+       ('1241', 200);
+
+INSERT INTO client(numero_client, adresse, nom, password)
+VALUES ('123456', 'Metz', 'DUPOND', '1234'),
+       ('123457', 'Metz', 'DUBOIS', '1234'),
+       ('123458', 'Paris', 'DUCHAMPS', '1234');
+
+INSERT INTO appartient(id_compte, id_client)
+VALUES (1, 1),
+       (2, 2),
+       (3, 3),
+       (4, 1),
+       (5, 2),
+       (6, 3),
+       (7, 1),
+       (8, 2),
+       (1, 3);

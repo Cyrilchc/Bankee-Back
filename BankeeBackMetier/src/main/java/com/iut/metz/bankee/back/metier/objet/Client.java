@@ -19,9 +19,13 @@ public class Client {
     private int id;
     @Column(name = "numero_client")
     private String numeroClient;
+    @Column(name = "adresse")
     private String adresse;
+    @Column(name = "nom")
     private String nom;
-    @Transient
+    @Column(name = "password")
+    private String password;
+
     @ManyToMany
     @JoinTable(name = "appartient",
             joinColumns = @JoinColumn(name = "id_client"),
@@ -48,10 +52,15 @@ public class Client {
         return comptes;
     }
 
-    public Client(String numeroClient, String adresse, String nom) {
+    public String getPassword() {
+        return password;
+    }
+
+    public Client(String numeroClient, String adresse, String nom, String password) {
         this.numeroClient = numeroClient;
         this.adresse = adresse;
         this.nom = nom;
+        this.password = password;
         this.comptes = new ArrayList<>();
     }
 
@@ -61,18 +70,18 @@ public class Client {
     /**
      * Constructeur de la classe Client avec id technique et liste de comptes
      */
-    public Client(int id, String numeroClient, String adresse, String nom, List<Compte> comptes) {
+    public Client(int id, String numeroClient, String adresse, String nom, String password, List<Compte> comptes) {
         this.id = id;
         this.numeroClient = numeroClient;
         this.adresse = adresse;
         this.nom = nom;
         this.comptes = comptes;
+        this.password = password;
         if (comptes == null) {
             this.comptes = new ArrayList<>();
         }
     }
 
-    // M�thodes de la classe
     public int nbComptes() {
         return this.comptes.size();
     }

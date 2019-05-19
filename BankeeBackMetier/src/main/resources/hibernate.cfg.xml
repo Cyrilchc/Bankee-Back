@@ -13,8 +13,8 @@
         <property name="show_sql">true</property>
 
         <mapping class="com.iut.metz.bankee.back.metier.objet.Compte"/>
-        <!--<mapping class="com.iut.metz.bankee.back.metier.objet.CompteAvecDecouvert"/>
-        <mapping class="com.iut.metz.bankee.back.metier.objet.CompteSansDecouvert"/>-->
+        <mapping class="com.iut.metz.bankee.back.metier.objet.CompteAvecDecouvert"/>
+        <mapping class="com.iut.metz.bankee.back.metier.objet.CompteSansDecouvert"/>
         <mapping class="com.iut.metz.bankee.back.metier.objet.Client"/>
 
     </session-factory>

@@ -24,4 +24,14 @@ public class ClientManager extends HibernateFactory<Client> {
     query.setParameter("numClient", numClient);
     return (Client) query.getSingleResult();
   }
+
+  public Client getByLogin(String user, String psw) {
+    Session session = getSession();
+    Query query = session.createQuery("select client from Client as client " +
+            "where client.numeroClient = :numClient " +
+            "and client.password = :psw");
+    query.setParameter("numClient", user);
+    query.setParameter("psw", psw);
+    return (Client) query.getSingleResult();
+  }
 }

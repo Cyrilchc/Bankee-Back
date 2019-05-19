@@ -13,7 +13,7 @@ public class TestClient {
 
     @Before
     public void setUp() {
-        client = new Client("CL1", "4 rue des peupliers", "MR JEAN DUPONT");
+        client = new Client("CL1", "4 rue des peupliers", "MR JEAN DUPONT", "1234");
     }
 
     @Test

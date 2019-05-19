@@ -10,7 +10,7 @@ import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
 import com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils;
 
 @Entity
-@DiscriminatorValue("1")
+@DiscriminatorValue("yes")
 public class CompteAvecDecouvert extends Compte implements Serializable {
 
   @Column(name = "decouvert_autorise")

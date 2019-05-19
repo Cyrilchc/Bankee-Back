@@ -10,6 +10,7 @@ public class ClientBuilder {
   private String numeroClient;
   private String adresse;
   private String nom;
+  private String psw;
   private List<Compte> comptes;
 
   public ClientBuilder(){
@@ -17,6 +18,7 @@ public class ClientBuilder {
     numeroClient = "";
     nom = "";
     adresse = "";
+    psw = "";
     comptes = new ArrayList<>();
   }
 
@@ -40,6 +42,11 @@ public class ClientBuilder {
     return this;
   }
 
+  public ClientBuilder addPassword(String psw) {
+    this.psw = psw;
+    return this;
+  }
+
   public ClientBuilder addCompte(Compte... comptes) {
     this.comptes = new ListComptesProcess().addCompte(this.comptes, comptes);
     return this;
@@ -51,6 +58,6 @@ public class ClientBuilder {
   }
 
   public Client build() {
-    return new Client(id, numeroClient, adresse, nom, comptes);
+    return new Client(id, numeroClient, adresse, nom, psw, comptes);
   }
 }

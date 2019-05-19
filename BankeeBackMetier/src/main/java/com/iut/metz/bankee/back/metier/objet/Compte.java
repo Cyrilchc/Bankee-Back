@@ -12,7 +12,9 @@ import java.util.Objects;
 
 @Entity
 @Table(name="compte")
-@DiscriminatorFormula("case when decouvert_autorise is null then 0 else 1")
+@DiscriminatorFormula(
+        "case when decouvert_autorise is null then 'no' when decouvert_autorise is not null then 'yes' end "
+)
 public class Compte implements Serializable {
   public Compte() {
   }

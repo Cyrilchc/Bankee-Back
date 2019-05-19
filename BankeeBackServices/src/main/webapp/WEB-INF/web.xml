@@ -8,7 +8,16 @@
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>com.iut.metz.bankee.back.services</param-value>
+            <param-value>
+                io.swagger.jaxrs.listing,
+                com.iut.metz.bankee.back.services</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>
+                org.glassfish.jersey.jackson.JacksonFeature;
+                org.apache.catalina.filters.CorsFilter
+            </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
