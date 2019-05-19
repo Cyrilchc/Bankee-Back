@@ -73,6 +73,6 @@ public class TestCompteService extends JerseyTest {
     PowerMockito.mockStatic(CompteManager.class);
     PowerMockito.when(CompteManager.getInstance()).thenReturn(dao);
     Response response = getResponse("test");
-    assertEquals(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode(), response.getStatus());
+    assertEquals(Response.Status.BAD_REQUEST.getStatusCode(), response.getStatus());
   }
 }

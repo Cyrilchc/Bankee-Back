@@ -1,7 +1,6 @@
 package com.iut.metz.bankee.back.metier.manager;
 
 import com.iut.metz.bankee.back.metier.objet.Compte;
-import com.iut.metz.bankee.back.metier.objet.CompteAvecDecouvert;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 

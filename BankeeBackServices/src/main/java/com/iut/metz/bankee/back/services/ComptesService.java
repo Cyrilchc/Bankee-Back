@@ -1,6 +1,6 @@
 package com.iut.metz.bankee.back.services;
 
-import com.iut.metz.bankee.back.metier.manager.CompteManager;
+import com.iut.metz.bankee.back.metier.objet.Banque;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -15,6 +15,6 @@ public class ComptesService {
   @GET
   @Produces({ MediaType.APPLICATION_JSON })
   public Response getCompte(@PathParam("num") String num) {
-    return new getDataService().getData(num, data -> CompteManager.getInstance().getComptesByNumClient(data));
+    return new getDataService().getData(num, data -> new Banque().consultationClient(num).getComptes());
   }
 }

@@ -3,6 +3,7 @@ package com.iut.metz.bankee.back.metier.objet;
 import static com.iut.metz.bankee.back.metier.utils.CurrencyUtils.DOLLARD;
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 import org.junit.*;
@@ -18,7 +19,7 @@ public class TestCompte {
 
   @Before
   public void init() {
-    compte = new Compte(SOMME_DE_BASE, "test") {
+    compte = new Compte(SOMME_DE_BASE, "test", new ArrayList<>()) {
       @Override
       public void doDebiter(Montant montant) {/*not used*/}
     };

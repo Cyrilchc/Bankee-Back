@@ -1,7 +1,9 @@
 package com.iut.metz.bankee.back.services;
 
+import com.iut.metz.bankee.back.metier.manager.ClientManager;
 import com.iut.metz.bankee.back.metier.manager.CompteManager;
 import com.iut.metz.bankee.back.metier.objet.Compte;
+import com.iut.metz.bankee.back.metier.objet.builder.ClientBuilder;
 import com.iut.metz.bankee.back.metier.objet.builder.CompteBuilder;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
@@ -24,7 +26,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest(CompteManager.class)
+@PrepareForTest(ClientManager.class)
 public class TestComptesService extends JerseyTest {
 
   @Override
@@ -33,10 +35,10 @@ public class TestComptesService extends JerseyTest {
   }
 
   private void mockDao(List<Compte> comptes) {
-    CompteManager dao = mock(CompteManager.class);
-    when(dao.getComptesByNumClient(Mockito.anyString())).thenReturn(comptes);
-    PowerMockito.mockStatic(CompteManager.class);
-    PowerMockito.when(CompteManager.getInstance()).thenReturn(dao);
+    ClientManager dao = mock(ClientManager.class);
+    when(dao.getByNumClient(Mockito.anyString())).thenReturn(new ClientBuilder().addComptes(comptes).build());
+    PowerMockito.mockStatic(ClientManager.class);
+    PowerMockito.when(ClientManager.getInstance()).thenReturn(dao);
   }
 
   private Response getResponse(String numClient) {
@@ -61,13 +63,13 @@ public class TestComptesService extends JerseyTest {
   public void testComptesService_RetourneNull() {
     mockDao(null);
     Response response = getResponse("test");
-    assertEquals(Response.Status.BAD_REQUEST.getStatusCode(), response.getStatus());
+    assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
   }
 
   @Test
   public void testComptesService_PaDeNumero() {
     mockDao(null);
     Response response = getResponse(null);
-    assertEquals(Response.Status.BAD_REQUEST.getStatusCode(), response.getStatus());
+    assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
   }
 }

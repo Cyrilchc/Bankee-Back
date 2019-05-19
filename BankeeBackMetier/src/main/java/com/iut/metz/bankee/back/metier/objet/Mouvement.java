@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "movement")
+@Table(name = "mouvement")
 public class Mouvement {
     @Id
     @Column(name = "id")
@@ -19,8 +19,28 @@ public class Mouvement {
     private double somme;
     @Column(name = "debit")
     private boolean debit;
+    @Column(name = "lib")
+    private String lib;
 
     public Mouvement() {}
+
+    public Mouvement(Date dateMouvement, Compte compte, double somme, String lib, boolean debit) {
+        this.id = -1;
+        this.dateMouvement = dateMouvement;
+        this.compte = compte;
+        this.somme = somme;
+        this.lib = lib;
+        this.debit = debit;
+    }
+
+    public Mouvement(int id, Date dateMouvement, Compte compte, double somme, String lib, boolean debit) {
+        this.id = id;
+        this.dateMouvement = dateMouvement;
+        this.compte = compte;
+        this.somme = somme;
+        this.lib = lib;
+        this.debit = debit;
+    }
 
     public int getId() {
         return id;
@@ -52,6 +72,14 @@ public class Mouvement {
 
     public void setSomme(double somme) {
         this.somme = somme;
+    }
+
+    public String getLib() {
+        return lib;
+    }
+
+    public void setLib(String lib) {
+        this.lib = lib;
     }
 
     public boolean isDebit() {

@@ -1,6 +1,7 @@
 package com.iut.metz.bankee.back.metier.objet;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.*;
@@ -16,8 +17,8 @@ public class CompteAvecDecouvert extends Compte implements Serializable {
   @Column(name = "decouvert_autorise")
   private double decouvertAutorise;
 
-  public CompteAvecDecouvert(int id, double solde, String numeroCompte, double decouvertAutorise) {
-    super(id, solde, numeroCompte);
+  public CompteAvecDecouvert(int id, double solde, String numeroCompte, double decouvertAutorise, List<Mouvement> mouvements) {
+    super(id, solde, numeroCompte, mouvements);
     this.decouvertAutorise = decouvertAutorise;
   }
 

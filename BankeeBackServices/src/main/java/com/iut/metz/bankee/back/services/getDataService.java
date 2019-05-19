@@ -15,7 +15,7 @@ public class getDataService {
         if (object instanceof String) {
             return badRequest(NUMERO_NON_VALIDE);
         }
-        if (object instanceof Exception) {
+        if (object == null || object instanceof Exception) {
             return getError((Exception) object);
         }
         return getResponse(object);

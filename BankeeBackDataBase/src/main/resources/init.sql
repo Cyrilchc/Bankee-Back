@@ -34,7 +34,8 @@ CREATE TABLE mouvement
     date_mouvement DATE DEFAULT CURRENT_DATE,
     id_compte      INTEGER NOT NULL,
     somme          INTEGER NOT NULL,
-    debit          BOOLEAN NOT NULL
+    debit          BOOLEAN NOT NULL,
+    lib            VARCHAR(255)
 );
 
 INSERT INTO compte(numero_compte, solde, decouvert_autorise)

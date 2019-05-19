@@ -9,12 +9,13 @@ import com.iut.metz.bankee.back.metier.objet.exception.MontantException;
 import com.iut.metz.bankee.back.metier.objet.exception.utils.MontantExceptionUtils;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @DiscriminatorValue("no")
 public class CompteSansDecouvert extends Compte implements Serializable {
-  public CompteSansDecouvert(int id, double solde, String numeroCompte) {
-    super(id, solde, numeroCompte);
+  public CompteSansDecouvert(int id, double solde, String numeroCompte, List<Mouvement> mouvements) {
+    super(id, solde, numeroCompte, mouvements);
   }
 
     public CompteSansDecouvert() {}

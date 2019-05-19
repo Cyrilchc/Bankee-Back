@@ -16,6 +16,7 @@
         <mapping class="com.iut.metz.bankee.back.metier.objet.CompteAvecDecouvert"/>
         <mapping class="com.iut.metz.bankee.back.metier.objet.CompteSansDecouvert"/>
         <mapping class="com.iut.metz.bankee.back.metier.objet.Client"/>
+        <mapping class="com.iut.metz.bankee.back.metier.objet.Mouvement"/>
 
     </session-factory>
 </hibernate-configuration>

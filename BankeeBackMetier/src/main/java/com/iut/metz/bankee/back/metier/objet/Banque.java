@@ -1,15 +1,22 @@
 package com.iut.metz.bankee.back.metier.objet;
 
 import static com.iut.metz.bankee.back.metier.objet.exception.utils.ClientExceptionUtils.*;
+import static com.iut.metz.bankee.back.metier.utils.CurrencyUtils.MONNAIE_PAR_DEFAUT;
 
 import com.iut.metz.bankee.back.metier.manager.*;
+import com.iut.metz.bankee.back.metier.objet.builder.ClientBuilder;
+import com.iut.metz.bankee.back.metier.objet.builder.MouvementBuilder;
 import com.iut.metz.bankee.back.metier.objet.currency.*;
 import com.iut.metz.bankee.back.metier.objet.exception.*;
 import com.iut.metz.bankee.back.metier.process.ConversionProcess;
 
+import java.time.Instant;
+import java.util.Date;
+import java.util.List;
+
 /**
- * Classe Métier Banque
- * Représente la gestion de la banque
+ * Classe Mï¿½tier Banque
+ * Reprï¿½sente la gestion de la banque
  * un helper pour gerer la banque
  */
 public class Banque {
@@ -40,43 +47,82 @@ public class Banque {
 
     /**
      * @param somme le montant en euro
-     * @param monnaie la monnaie dans laquel le montant doit être converti
-     * @return le montant dans la monnaie demandé
-     * @throws MetierException est lancé si les donnée ne sont pas valid (ex. somme = -1)
+     * @param monnaie la monnaie dans laquel le montant doit ï¿½tre converti
+     * @return le montant dans la monnaie demandï¿½
+     * @throws MetierException est lancï¿½ si les donnï¿½e ne sont pas valid (ex. somme = -1)
      */
     public Montant conversionFromEuro(double somme, Monnaie monnaie) throws MetierException {
         return new ConversionProcess().fromEuro(somme, monnaie);
     }
 
     /**
-     * @param montant le montant dans la mmonnaie donné
+     * @param montant le montant dans la mmonnaie donnï¿½
      * @return le montant en euro
-     * @throws MetierException est lancé si le montant est null
+     * @throws MetierException est lancï¿½ si le montant est null
      */
     public Montant conversionToEuro(Montant montant) throws MetierException {
         return new ConversionProcess().toEuro(montant);
     }
 
     /**
-     * ajoute un compte à un client
+     * CrÃ©e un client
      */
-    public Client ouvertureCompte(String numeroClient) {
-        Client client = consultationClient(numeroClient);
+    public Client creationClient(Personne personne) {
+        String numeroClient = Long.toString(Date.from(Instant.now()).getTime());
+        Client client = new ClientBuilder()
+                .addNumeroClient(numeroClient)
+                .addAdresse(personne.getAdresse())
+                .addNomm(personne.getNom())
+                .addPassword("1234")
+                .build();
+        client = ClientManager.getInstance().create(client);
         return client;
     }
 
+    public void doVirement(Virement virement) throws MetierException {
+        CompteManager compteManager = CompteManager.getInstance();
+        MouvementManager mouvementManager = MouvementManager.getInstance();
+        Compte donneur = compteManager.getCompteByNumCompte(virement.getDonneur());
+        Compte receveur = CompteManager.getInstance().getCompteByNumCompte(virement.getReceveur());
+        Montant montant = new Montant(virement.getSomme(), MONNAIE_PAR_DEFAUT);
+        donneur.debiter(montant);
+        receveur.crediter(montant);
+        Date date = Date.from(Instant.now());
+        Mouvement donneurMov = new MouvementBuilder()
+                .addIsDebit(true)
+                .addCompte(donneur)
+                .addDateMouvement(date)
+                .addLib(virement.getReason())
+                .addSomme(conversionToEuro(montant).getMontant())
+                .build();
+        Mouvement receveurMov = new MouvementBuilder()
+                .addIsDebit(false)
+                .addCompte(receveur)
+                .addDateMouvement(date)
+                .addLib(virement.getReason())
+                .addSomme(conversionToEuro(montant).getMontant())
+                .build();
+        mouvementManager.create(donneurMov, receveurMov);
+        compteManager.update(donneur, receveur);
+    }
+
     /**
-     * récupère un compte et le crédite au montant donné
+     * rï¿½cupï¿½re un compte et le crï¿½dite au montant donnï¿½
      */
     public boolean depot(String numeroCompte, Montant montant) throws MetierException {
         return effectuerOpertation(numeroCompte, montant, compte -> compte.crediter(montant));
     }
 
     /**
-     * récupère un compte et le débite au montant donné
+     * rï¿½cupï¿½re un compte et le dï¿½bite au montant donnï¿½
      */
     public boolean retrait(String numeroCompte, Montant montant) throws MetierException {
         return effectuerOpertation(numeroCompte, montant, compte -> compte.debiter(montant));
+    }
+
+    public List<Mouvement> getMovementByCompte(String numCompte) {
+        Compte compte = CompteManager.getInstance().getCompteByNumCompte(numCompte);
+        return MouvementManager.getInstance().getByCompte(compte);
     }
 
     private boolean effectuerOpertation(String numeroCompte, Montant montant, ConsumerVerifie<Compte> operationAFaire) throws MetierException {

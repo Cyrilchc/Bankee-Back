@@ -103,7 +103,7 @@ public class TestCompteBuilder {
     assertEquals(((CompteAvecDecouvert)compte).getDecouvertAutorise(), decouvert, 0);
   }
 
-  public void testAllCase() {
+  private void testAllCase() {
     assertEquals(compte.getId(), id);
     assertEquals(compte.getSolde(), solde, 0);
     assertEquals(compte.getNumeroCompte(), numeroCompte);

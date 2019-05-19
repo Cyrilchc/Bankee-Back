@@ -1,5 +1,6 @@
 package com.iut.metz.bankee.back.metier.manager;
 
+import java.util.Arrays;
 import java.util.logging.*;
 
 import org.hibernate.*;
@@ -12,9 +13,8 @@ public abstract class HibernateFactory<T> {
         this.tType = tType;
     }
 
-    private static SessionFactory sessionFactory;
-
-    public static Session getSession() {
+    static Session getSession() {
+        SessionFactory sessionFactory;
         try {
             Configuration cfg = new Configuration();
             sessionFactory = cfg.configure("hibernate.cfg.xml").buildSessionFactory();
@@ -34,6 +34,15 @@ public abstract class HibernateFactory<T> {
         return read(id);
     }
 
+    @SafeVarargs
+    public final void create(T... t) {
+        Session session = getSession();
+        session.beginTransaction();
+        Arrays.stream(t).forEach(session::save);
+        session.getTransaction().commit();
+        session.close();
+    }
+
     public T read(int id) {
         Session session = getSession();
         T t = session.get(tType, id);
@@ -49,10 +58,11 @@ public abstract class HibernateFactory<T> {
         session.close();
     }
 
-    public void update(T t) {
+    @SafeVarargs
+    public final void update(T... t) {
         Session session = getSession();
         session.beginTransaction();
-        session.update(t);
+        Arrays.stream(t).forEach(session::update);
         session.getTransaction().commit();
         session.close();
     }
