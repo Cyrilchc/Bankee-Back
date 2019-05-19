@@ -8,6 +8,9 @@ public class Virement {
   private double somme;
   private String nomMonnaie;
 
+  public Virement() {
+  }
+
   public Virement(String receveur, String donneur, double somme, String nomMonnaie) {
     this.receveur = receveur;
     this.donneur = donneur;

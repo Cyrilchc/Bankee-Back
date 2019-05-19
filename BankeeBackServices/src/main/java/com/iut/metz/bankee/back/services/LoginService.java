@@ -3,10 +3,7 @@ package com.iut.metz.bankee.back.services;
 import com.iut.metz.bankee.back.metier.objet.Client;
 import com.iut.metz.bankee.back.metier.process.LoginProcess;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -20,13 +17,29 @@ import javax.ws.rs.core.Response;
 @Path("login")
 public class LoginService {
 
+
+    @GET
+    @Path("/{user}/{psw}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response isCorrectClient(@PathParam("user") String user, @PathParam("psw") String psw) {
+        Client res = new LoginProcess().getClientByLogin(user, psw);
+        if (res == null) {
+            return Response.status(Response.Status.UNAUTHORIZED).build();
+        }
+        return Response.ok(res).build();
+    }
+
     @POST
+    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Object isCorrectClient(final Client client) {
+    public Response connect(Client client) {
         String user = client.getNumeroClient();
         String psw = client.getPassword();
         Client res = new LoginProcess().getClientByLogin(user, psw);
-        return res;
+        if (res == null) {
+            return Response.status(Response.Status.UNAUTHORIZED).build();
+        }
+        return Response.ok(res).build();
     }
 
 }

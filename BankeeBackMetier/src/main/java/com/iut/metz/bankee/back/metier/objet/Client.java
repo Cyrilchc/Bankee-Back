@@ -56,6 +56,30 @@ public class Client {
         return password;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNumeroClient(String numeroClient) {
+        this.numeroClient = numeroClient;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setComptes(List<Compte> comptes) {
+        this.comptes = comptes;
+    }
+
     public Client(String numeroClient, String adresse, String nom, String password) {
         this.numeroClient = numeroClient;
         this.adresse = adresse;

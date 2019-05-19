@@ -27,6 +27,16 @@ CREATE TABLE appartient
     FOREIGN KEY (id_client) REFERENCES client (id)
 );
 
+-- table mouvement
+CREATE TABLE mouvement
+(
+    id             SERIAL PRIMARY KEY,
+    date_mouvement DATE DEFAULT CURRENT_DATE,
+    id_compte      INTEGER NOT NULL,
+    somme          INTEGER NOT NULL,
+    debit          BOOLEAN NOT NULL
+);
+
 INSERT INTO compte(numero_compte, solde, decouvert_autorise)
 values ('1234', 100, 100),
        ('1235', -50, 100),

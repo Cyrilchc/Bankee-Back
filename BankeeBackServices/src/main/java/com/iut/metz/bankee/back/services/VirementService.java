@@ -21,7 +21,7 @@ public class VirementService {
   @POST
   @Consumes({ MediaType.APPLICATION_JSON })
   @Produces({ MediaType.APPLICATION_JSON })
-  public Response produceVirement(@Context HttpHeaders headers, final Virement virement) {
+  public Response produceVirement(final Virement virement) {
     return Response.ok().entity(virement).build();
   }
 }
