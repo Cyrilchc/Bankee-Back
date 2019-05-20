@@ -143,7 +143,7 @@ public class Banque {
         return true;
     }
 
-    private void purgeMovement(List<Mouvement> mouvements) {
+    public void purgeMovement(List<Mouvement> mouvements) {
         mouvements.forEach(mouvement -> mouvement.setCompte(null));
     }
 
