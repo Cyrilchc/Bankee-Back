@@ -32,7 +32,7 @@ CREATE TABLE mouvement
 (
     id             SERIAL PRIMARY KEY,
     date_mouvement DATE DEFAULT CURRENT_DATE,
-    id_compte      INTEGER NOT NULL,
+    compte_id      INTEGER NOT NULL,
     somme          INTEGER NOT NULL,
     debit          BOOLEAN NOT NULL,
     lib            VARCHAR(255)
@@ -65,3 +65,8 @@ VALUES (1, 1),
        (7, 1),
        (8, 2),
        (1, 3);
+
+INSERT INTO mouvement(compte_id, somme, debit, lib)
+VALUES (1, 50, true, 'Mc. Do'),
+       (1, 200, true, 'Ikea'),
+       (1, 1523.16, false, 'La bonne Paye');

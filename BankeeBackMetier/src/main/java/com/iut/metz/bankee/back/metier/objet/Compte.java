@@ -26,8 +26,7 @@ public class Compte implements Serializable {
     private double solde;
     @Column(name = "numero_compte")
     private String numeroCompte;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "mouvement", joinColumns = @JoinColumn(name = "id_compte"))
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "compte")
     private List<Mouvement> mouvements;
 
     public Compte(int id, double solde, String numeroCompte, List<Mouvement> mouvements) {

@@ -12,7 +12,7 @@ public class Mouvement {
     private int id;
     @Column(name = "date_mouvement")
     private Date dateMouvement;
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "compte_id")
     private Compte compte;
     @Column(name = "somme")

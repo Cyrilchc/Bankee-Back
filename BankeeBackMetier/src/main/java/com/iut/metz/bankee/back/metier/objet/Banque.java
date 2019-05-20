@@ -27,7 +27,9 @@ public class Banque {
      */
     public Compte consultation(String numeroCompte) {
         try {
-             return CompteManager.getInstance().getCompteByNumCompte(numeroCompte);
+             Compte compte = CompteManager.getInstance().getCompteByNumCompte(numeroCompte);
+             purgeMovement(compte.getMouvements());
+             return compte;
         } catch (Exception e) {
             return null;
         }
@@ -39,7 +41,9 @@ public class Banque {
      */
     public Client consultationClient(String numeroClient) {
         try {
-            return ClientManager.getInstance().getByNumClient(numeroClient);
+            Client client = ClientManager.getInstance().getByNumClient(numeroClient);
+            client.getComptes().forEach(compte -> purgeMovement(compte.getMouvements()));
+            return client;
         } catch (Exception e) {
             return null;
         }
@@ -137,6 +141,10 @@ public class Banque {
             throw new ClientException(OPERATION_IMPOSIBLE);
         }
         return true;
+    }
+
+    private void purgeMovement(List<Mouvement> mouvements) {
+        mouvements.forEach(mouvement -> mouvement.setCompte(null));
     }
 
     @FunctionalInterface
