@@ -1,6 +1,7 @@
 package com.iut.metz.bankee.back.services;
 
 import com.iut.metz.bankee.back.metier.manager.ClientManager;
+import com.iut.metz.bankee.back.metier.objet.Client;
 import com.iut.metz.bankee.back.metier.objet.Compte;
 import com.iut.metz.bankee.back.metier.objet.builder.ClientBuilder;
 import com.iut.metz.bankee.back.metier.objet.builder.CompteBuilder;
@@ -29,45 +30,44 @@ public class TestLoginService extends JerseyTest {
 
   @Override
   protected Application configure() {
-    return new ResourceConfig(ComptesService.class);
+    return new ResourceConfig(LoginService.class);
   }
 
-  private void mockDao(List<Compte> comptes) {
+  private void mockDao(Client client) {
     ClientManager dao = mock(ClientManager.class);
-    when(dao.getByNumClient(Mockito.anyString())).thenReturn(new ClientBuilder().addComptes(comptes).build());
+    when(dao.getByLogin(Mockito.anyString(), Mockito.anyString())).thenReturn(client);
     PowerMockito.mockStatic(ClientManager.class);
     PowerMockito.when(ClientManager.getInstance()).thenReturn(dao);
   }
 
-  private Response getResponse(String numClient) {
-    Invocation.Builder builder = target("/comptes/"+numClient)
+  private Response getResponse() {
+    Invocation.Builder builder = target("/login/1/1")
             .request();
     return builder.get();
   }
 
   @Test
-  public void testComptesService_RetourneUnCompte() {
-    Compte compte1 = new CompteBuilder().addId(1).build();
-    Compte compte2 = new CompteBuilder().addId(2).build();
-    String expected = "[{\"id\":1,\"solde\":0.0,\"numeroCompte\":\"\"},{\"id\":2,\"solde\":0.0,\"numeroCompte\":\"\"}]";
-    mockDao(Arrays.asList(compte1, compte2));
-    Response response = getResponse("test");
+  public void testisCorrectClient() {
+    Client client = new ClientBuilder().build();
+    String expected = "{\"id\":-1,\"numeroClient\":\"\",\"adresse\":\"\",\"nom\":\"\",\"password\":\"\",\"comptes\":[]}";
+    mockDao(client);
+    Response response = getResponse();
     String res = response.readEntity(String.class);
     assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
     assertEquals(expected, res);
   }
 
   @Test
-  public void testComptesService_RetourneNull() {
+  public void testisNotCorrectClient() {
     mockDao(null);
-    Response response = getResponse("test");
-    assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+    Response response = getResponse();
+    assertEquals(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode(), response.getStatus());
   }
 
   @Test
-  public void testComptesService_PaDeNumero() {
-    mockDao(null);
-    Response response = getResponse(null);
-    assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+  public void testSuccesConnect(){
+    Client client = new ClientBuilder().build();
+    String expected = "{\"id\":-1,\"numeroClient\":\"\",\"adresse\":\"\",\"nom\":\"\",\"password\":\"\",\"comptes\":[]}";
+    mockDao(client);
   }
 }

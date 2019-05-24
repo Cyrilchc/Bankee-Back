@@ -1,11 +1,6 @@
 package com.iut.metz.bankee.back.services.process;
 
 import static com.iut.metz.bankee.back.services.util.ServiceConstante.*;
-import static com.iut.metz.bankee.back.services.util.ServiceUtils.*;
-
-import java.util.List;
-
-import javax.ws.rs.core.HttpHeaders;
 
 import org.apache.log4j.Logger;
 

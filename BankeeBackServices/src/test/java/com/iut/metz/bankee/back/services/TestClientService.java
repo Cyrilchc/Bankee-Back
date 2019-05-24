@@ -46,23 +46,20 @@ public class TestClientService extends JerseyTest {
   }
 
   @Test
-  public void testClientService_RetourneUnClient() {
-    Client client = new ClientBuilder().build();
-    mockDao(client);
+  public void testCompteService_RetourneUnClient() {
     Response response = getResponse("test");
-    String res = response.readEntity(String.class);
     assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
   }
 
   @Test
-  public void testClientService_RetourneNull() {
+  public void testCompteService_RetourneNull() {
     mockDao(null);
     Response response = getResponse("test");
     assertEquals(Response.Status.BAD_REQUEST.getStatusCode(), response.getStatus());
   }
 
   @Test
-  public void testClientService_PaDeNumero() {
+  public void testCompteService_PaDeNumero() {
     mockDao(null);
     Response response = getResponse(null);
     assertEquals(Response.Status.BAD_REQUEST.getStatusCode(), response.getStatus());

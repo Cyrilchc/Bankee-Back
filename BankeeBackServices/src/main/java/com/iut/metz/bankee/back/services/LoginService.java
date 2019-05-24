@@ -29,6 +29,7 @@ public class LoginService {
         return Response.ok(res).build();
     }
 
+    @Deprecated
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
