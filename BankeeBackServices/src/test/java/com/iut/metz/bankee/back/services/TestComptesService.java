@@ -51,7 +51,7 @@ public class TestComptesService extends JerseyTest {
   public void testComptesService_RetourneUnCompte() {
     Compte compte1 = new CompteBuilder().addId(1).build();
     Compte compte2 = new CompteBuilder().addId(2).build();
-    String expected = "[{\"id\":1,\"solde\":0.0,\"numeroCompte\":\"\"},{\"id\":2,\"solde\":0.0,\"numeroCompte\":\"\"}]";
+    String expected = "[{\"id\":1,\"solde\":0.0,\"numeroCompte\":\"\",\"mouvements\":[]},{\"id\":2,\"solde\":0.0,\"numeroCompte\":\"\",\"mouvements\":[]}]";
     mockDao(Arrays.asList(compte1, compte2));
     Response response = getResponse("test");
     String res = response.readEntity(String.class);

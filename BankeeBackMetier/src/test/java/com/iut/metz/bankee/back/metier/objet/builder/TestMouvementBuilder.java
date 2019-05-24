@@ -19,6 +19,7 @@ public class TestMouvementBuilder {
   private Compte compte;
   private double somme;
   private boolean debit;
+  private String lib;
 
   @Before
   public void init() {
@@ -28,6 +29,7 @@ public class TestMouvementBuilder {
     compte = null;
     somme = 0;
     debit = true;
+    lib = "";
   }
 
   @Test
@@ -72,6 +74,13 @@ public class TestMouvementBuilder {
   }
 
   @Test
+  public void testCompteBuilder_addLib() {
+    lib = "azerty";
+    mouvement = builder.addLib(lib).build();
+    testAllCase();
+  }
+
+  @Test
   public void testCompteBuilder_addCompte() {
     compte = new Compte();
     mouvement = builder.addCompte(compte).build();
@@ -83,6 +92,7 @@ public class TestMouvementBuilder {
     assertEquals(mouvement.getCompte(), compte);
     assertEquals(mouvement.getDateMouvement().getTime()/100, dateMouvement.getTime()/100);
     assertEquals(mouvement.getSomme(), somme, 0);
+    assertEquals(mouvement.getLib(), lib);
     assertEquals(mouvement.isDebit(), debit);
   }
 }

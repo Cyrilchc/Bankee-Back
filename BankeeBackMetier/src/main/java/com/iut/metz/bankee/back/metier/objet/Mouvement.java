@@ -2,6 +2,7 @@ package com.iut.metz.bankee.back.metier.objet;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "mouvement")
@@ -88,5 +89,13 @@ public class Mouvement {
 
     public void setDebit(boolean debit) {
         this.debit = debit;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mouvement mouvement = (Mouvement) o;
+        return id == mouvement.id ;
     }
 }

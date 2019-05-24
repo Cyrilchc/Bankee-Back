@@ -16,6 +16,7 @@ public class TestClientBuilder {
   private String numeroClient;
   private String adresse;
   private String nom;
+  private String psw;
   private List<Compte> comptes;
 
   @Before
@@ -25,6 +26,7 @@ public class TestClientBuilder {
     numeroClient = "";
     adresse = "";
     nom = "";
+    psw = "";
     comptes = new ArrayList<>();
   }
 
@@ -59,6 +61,13 @@ public class TestClientBuilder {
   public void testClientBuilder_addNom() {
     nom = "azerty";
     client = builder.addNomm(nom).build();
+    testAllCase();
+  }
+
+  @Test
+  public void testClientBuilder_addPsw() {
+    psw = "azerty";
+    client = builder.addPassword(psw).build();
     testAllCase();
   }
 
@@ -175,6 +184,7 @@ public class TestClientBuilder {
   private void testAllCase() {
     assertEquals(client.getId(), id);
     assertEquals(client.getNom(), nom);
+    assertEquals(client.getPassword(), psw);
     assertEquals(client.getAdresse(), adresse);
     assertEquals(client.getNumeroClient(), numeroClient);
     assertEquals(client.getComptes(), comptes);
