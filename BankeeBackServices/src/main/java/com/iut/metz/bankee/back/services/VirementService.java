@@ -24,15 +24,15 @@ import javax.ws.rs.core.Response;
 public class VirementService {
 
   @POST
-  @Consumes({ MediaType.APPLICATION_JSON })
-  @Produces({ MediaType.APPLICATION_JSON })
+  @Consumes(MediaType.APPLICATION_JSON)
+  @Produces(MediaType.APPLICATION_JSON)
   public Response produceVirement(final Virement virement) {
     try {
       new Banque().doVirement(virement);
       return Response.ok().entity(virement).build();
     } catch (Exception e) {
       return Response.status(Response.Status.BAD_REQUEST)
-              .entity("")
+              .entity(e)
               .build();
     }
   }

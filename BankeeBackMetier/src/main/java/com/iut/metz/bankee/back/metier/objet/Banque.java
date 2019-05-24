@@ -106,8 +106,12 @@ public class Banque {
                 .addLib(virement.getReason())
                 .addSomme(conversionToEuro(montant).getMontant())
                 .build();
-        mouvementManager.create(donneurMov, receveurMov);
-        compteManager.update(donneur, receveur);
+        receveur.getMouvements().add(receveurMov);
+        donneur.getMouvements().add(donneurMov);
+        compteManager.update(donneur);
+        compteManager.update(receveur);
+        /*mouvementManager.create(donneurMov);
+        mouvementManager.create(receveurMov);*/
     }
 
     /**

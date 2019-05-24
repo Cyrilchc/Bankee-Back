@@ -44,7 +44,7 @@ public class TestCompteService extends JerseyTest {
   @Test
   public void testCompteService_RetourneUnCompte() {
     Compte compte = new CompteBuilder().build();
-    String expected = "{\"id\":-1,\"solde\":0.0,\"numeroCompte\":\"\"}";
+    String expected = "{\"id\":-1,\"solde\":0.0,\"numeroCompte\":\"\",\"mouvements\":[]}";
     mockDao(compte);
     Response response = getResponse("test");
     String res = response.readEntity(String.class);
