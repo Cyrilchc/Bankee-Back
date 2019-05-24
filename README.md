@@ -3,7 +3,7 @@
 [![front](https://img.shields.io/badge/bankee-Front-41A48D.svg)](https://github.com/lcuoco/Bankee-Front)
 
 Project made by
-    <span style="color:blue; font-family:Georgia;">CHALLOUATTE Cyril</span>
+    <span style="color:blue; font-family:Georgia;">CHALLOUATTE Cyril</span>,
     <span style="color:blue; font-family:Georgia;">CUOCO Lucas</span>,
     <span style="color:blue; font-family:Georgia;">LIGONY Charles</span> and
     <span style="color:blue; font-family:Georgia;">NOEL Loic</span> as part of the <b>test cours</b>
